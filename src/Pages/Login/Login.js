@@ -1,7 +1,11 @@
 import React from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Division from "../../Components/Division/Division";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
@@ -10,9 +14,13 @@ import Social from "./Social";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending, resetError] =
+    useSendPasswordResetEmail(auth);
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm();
 
@@ -27,6 +35,24 @@ const Login = () => {
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
     console.log(data);
+  };
+  console.log();
+
+  const handleResetPassword = async () => {
+    const email = getValues("email");
+    if (email) {
+      if (sending) {
+        toast("Email is sending");
+      }
+      if (resetError) {
+        toast.error("Something Went Wrong, Try Again");
+      }
+      await sendPasswordResetEmail(email);
+      toast.success("Email Sent , Please Check !");
+    }
+    if (!email) {
+      toast.warning("Please Provide Your Email !");
+    }
   };
 
   return (
@@ -95,7 +121,11 @@ const Login = () => {
         </form>
 
         <div className="flex justify-between items-center w-full px-10">
-          <span className="cursor-pointer -mt-5 text-gray-100" to="/register">
+          <span
+            onClick={handleResetPassword}
+            className="cursor-pointer -mt-5 text-gray-100"
+            to="/register"
+          >
             Forgot password ?
           </span>
           <Link className="-mt-5 text-gray-100" to="/register">

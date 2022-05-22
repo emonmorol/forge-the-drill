@@ -1,7 +1,12 @@
 import React from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Division from "../../Components/Division/Division";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
@@ -10,6 +15,8 @@ import Social from "./Social";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating] = useUpdateProfile(auth);
+  const [sendEmailVerification] = useSendEmailVerification(auth);
 
   const {
     register,
@@ -17,7 +24,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  if (loading) {
+  if (loading || updating) {
     return <Loading />;
   }
 
@@ -25,8 +32,11 @@ const Register = () => {
     console.log(user);
   }
 
-  const onSubmit = (data) => {
-    createUserWithEmailAndPassword(data.email, data.password);
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    await sendEmailVerification();
+    toast.success("Verification Email sent !");
   };
 
   return (
