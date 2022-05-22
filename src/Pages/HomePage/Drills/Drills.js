@@ -16,17 +16,19 @@ const Drills = () => {
   }
 
   return (
-    <div className="min-h-[100vh] max-w-7xl mx-auto">
-      <h2>We MenuFacture</h2>
-      {error ? (
-        <p>{error.message}</p>
-      ) : (
-        <div className="grid grid-cols-3 gap-y-8">
-          {drills?.data.map((drill) => (
-            <DrillCard key={drill._id} drill={drill} />
-          ))}
-        </div>
-      )}
+    <div className="section-bg">
+      <div className=" max-w-7xl mx-auto py-20">
+        <h2>We MenuFacture</h2>
+        {error ? (
+          <p>{error.message}</p>
+        ) : (
+          <div className="grid grid-cols-3 gap-y-8">
+            {drills?.data.slice(0, 3).map((drill) => (
+              <DrillCard key={drill._id} drill={drill} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

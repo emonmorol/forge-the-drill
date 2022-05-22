@@ -11,7 +11,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-} */
+.section-bg {
+  position: relative;
+  overflow: hidden;
+}
+.section-bg::before {
+  content: " ";
+  background-color: #e3f6ff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  transform: translateX(-100%);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+.section-bg:hover::before {
+  transform: translateX(-50%);
+}

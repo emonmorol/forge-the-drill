@@ -4,10 +4,10 @@ import "./Navbar.css";
 
 const Navbar = ({ children }) => {
   return (
-    <nav class="drawer drawer-end">
+    <nav class="relative drawer drawer-end z-50">
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
-        <div class="nav-content w-full navbar bg-primary">
+        <div class="nav-content w-full navbar bg-primary sticky top-0">
           <div class="flex-1 px-2 mx-2 text-white">Forge The Drill</div>
           <div class="flex-none lg:hidden">
             <label for="my-drawer-3" class="btn btn-square btn-ghost">
