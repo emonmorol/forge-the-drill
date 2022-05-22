@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import primaryAxios from "../../Api/primaryAxios";
 import Division from "../../Components/Division/Division";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
@@ -31,6 +32,14 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
+      (async () => {
+        const { data } = await primaryAxios.put("/user", {
+          name: user?.user?.displayName,
+          email: user?.user?.email,
+        });
+        console.log(data);
+      })();
+
       navigate(from, { replace: true });
     }
   }, [user, from, navigate]);
@@ -41,9 +50,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
-    console.log(data);
   };
-  console.log();
 
   const handleResetPassword = async () => {
     const email = getValues("email");

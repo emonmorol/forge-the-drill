@@ -10,7 +10,6 @@ import auth from "../../firebase.init";
 const PurchasePage = () => {
   const { id } = useParams();
   const [user] = useAuthState(auth);
-  console.log(user.email);
   const [totalPrice, setTotalPrice] = useState(1);
   const {
     register,
@@ -39,7 +38,6 @@ const PurchasePage = () => {
   } = drill?.data;
 
   const onSubmit = (data) => {
-    console.log(data);
     setTotalPrice(+data.quantity * price);
   };
 

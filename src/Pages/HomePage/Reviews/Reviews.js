@@ -15,8 +15,6 @@ const Reviews = () => {
     return <Loading />;
   }
 
-  console.log(reviews);
-
   return (
     <section className="bg-neutral p-20">
       <div className="min-h-[60vh]">

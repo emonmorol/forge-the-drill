@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import primaryAxios from "../../Api/primaryAxios";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
 
@@ -14,6 +15,13 @@ const Social = () => {
 
   useEffect(() => {
     if (user) {
+      (async () => {
+        const { data } = await primaryAxios.put("/user", {
+          name: user?.user?.displayName,
+          email: user?.user?.email,
+        });
+        console.log(data);
+      })();
       navigate(from, { replace: true });
     }
   }, [user, from, navigate]);

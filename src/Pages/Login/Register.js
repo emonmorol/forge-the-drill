@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import primaryAxios from "../../Api/primaryAxios";
 import Division from "../../Components/Division/Division";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
@@ -17,12 +18,14 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating] = useUpdateProfile(auth);
   const [sendEmailVerification] = useSendEmailVerification(auth);
+  const [name, setName] = useState("");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  console.log(user?.user);
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -31,15 +34,24 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
+      (async () => {
+        const { data } = await primaryAxios.put("/user", {
+          name: name,
+          email: user?.user?.email,
+        });
+        console.log(data);
+      })();
+
       navigate(from, { replace: true });
     }
-  }, [user, from, navigate, updating]);
+  }, [user, from, navigate, updating, name]);
 
   if (loading || updating) {
     return <Loading />;
   }
 
   const onSubmit = async (data) => {
+    setName(data?.name);
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     await sendEmailVerification();
