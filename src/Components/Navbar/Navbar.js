@@ -33,7 +33,13 @@ const Navbar = ({ children }) => {
                 <Link to="/home">Home</Link>
               </li>
               <li>
-                <Link to="/Blogs">Navbar Item 2</Link>
+                <Link to="/Blogs">Blogs</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
               </li>
             </ul>
           </div>
