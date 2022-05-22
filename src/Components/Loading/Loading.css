@@ -3,6 +3,7 @@
   width: 80px;
   height: 80px;
   margin: 50px auto;
+  background: rgba(187, 160, 160, 0);
 }
 .drill-loading:after {
   content: " ";

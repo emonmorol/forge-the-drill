@@ -1,21 +1,38 @@
 import React from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Division from "../../Components/Division/Division";
+import Loading from "../../Components/Loading/Loading";
+import auth from "../../firebase.init";
 import Social from "./Social";
 
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (user) {
+    console.log(user);
+  }
+
+  const onSubmit = (data) => {
+    createUserWithEmailAndPassword(data.email, data.password);
+  };
 
   return (
     <div className="bg-login bg-no-repeat bg-cover h-[100vh]">
       <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 rounded-2xl shadow-2xl">
-        <h2 className="pt-10 text-gray-100 uppercase text-3xl font-bold">
+        <h2 className="pt-10 text-gray-100 uppercase text-3xl font-normal">
           register
         </h2>
         <form
@@ -47,7 +64,7 @@ const Register = () => {
           </div>
           <div class="form-control w-full">
             <label class="input-group w-full">
-              <span className="bg-primary font-bold uppercase text-center text-white w-1/4">
+              <span className="bg-primary font-normal uppercase text-center text-white w-1/4">
                 Email
               </span>
               <input
@@ -70,7 +87,7 @@ const Register = () => {
           </div>
           <div class="form-control w-full">
             <label class="input-group w-full">
-              <span className="bg-primary font-bold uppercase text-center text-white w-1/4">
+              <span className="bg-primary font-normal uppercase text-center text-white w-1/4">
                 Password
               </span>
               <input
@@ -94,6 +111,7 @@ const Register = () => {
               <p className="error">{errors.password.message}</p>
             )}
           </div>
+          {error && <p className="error">{error.message}</p>}
           <button
             type="submit"
             className="btn btn-primary text-white rounded-full w-full"

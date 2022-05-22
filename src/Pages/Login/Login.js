@@ -1,16 +1,33 @@
 import React from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Division from "../../Components/Division/Division";
+import Loading from "../../Components/Loading/Loading";
+import auth from "../../firebase.init";
 import Social from "./Social";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (user) {
+    console.log(user);
+  }
+
+  const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
+    console.log(data);
+  };
 
   return (
     <div className="bg-login bg-no-repeat bg-cover h-[100vh]">
@@ -71,6 +88,7 @@ const Login = () => {
               <p className="error">{errors.password.message}</p>
             )}
           </div>
+          {error && <p className="error">{error.message}</p>}
           <button className="btn btn-primary text-white rounded-full w-full">
             Login
           </button>
