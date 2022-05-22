@@ -11,6 +11,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.error {
+  color: rgb(255, 62, 62);
+  font-weight: 600;
+  text-align: center;
+}
+
 .section-bg {
   position: relative;
   overflow: hidden;
