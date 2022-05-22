@@ -33,7 +33,7 @@ const Register = () => {
     if (user) {
       navigate(from, { replace: true });
     }
-  }, [user, from, navigate]);
+  }, [user, from, navigate, updating]);
 
   if (loading || updating) {
     return <Loading />;

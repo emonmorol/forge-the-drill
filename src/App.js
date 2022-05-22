@@ -3,7 +3,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./Authentication/RequireAuth";
 import Navbar from "./Components/Navbar/Navbar";
+import Dashboard from "./Pages/DashboardPage/Dashboard/Dashboard";
 import { privateRoute } from "./Routes/privateRoute";
+import { publicDashboard } from "./Routes/publicDashboard";
 import { publicRoute } from "./Routes/publicRoute";
 
 function App() {
@@ -18,6 +20,13 @@ function App() {
             {privateRoute.map(({ path, Component }, index) => (
               <Route key={index} path={path} element={<Component />} />
             ))}
+          </Route>
+          <Route element={<RequireAuth />}>
+            <Route path="/dashboard" element={<Dashboard />}>
+              {publicDashboard.map(({ path, Component }, index) => (
+                <Route key={index} path={path} element={<Component />} />
+              ))}
+            </Route>
           </Route>
         </Routes>
         <ToastContainer

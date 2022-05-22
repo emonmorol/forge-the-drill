@@ -3,10 +3,14 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "../Loading/Loading";
 import "./Navbar.css";
 
 const Navbar = ({ children }) => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <nav class="relative drawer drawer-end">
@@ -43,7 +47,12 @@ const Navbar = ({ children }) => {
               {user ? (
                 <>
                   <li>
-                    <Link to="/myProfile">{user.displayName}</Link>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/myProfile">
+                      {user?.displayName ? user.displayName : "User"}
+                    </Link>
                   </li>
                   <li>
                     <Link onClick={() => signOut(auth)} to="/login">
