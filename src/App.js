@@ -7,7 +7,6 @@ function App() {
       <Navbar>
         <Home />
       </Navbar>
-      <h2>This is starting</h2>
     </div>
   );
 }

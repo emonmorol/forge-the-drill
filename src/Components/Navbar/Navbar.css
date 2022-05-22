@@ -1,3 +1,8 @@
+nav {
+  position: sticky;
+
+  top: 0px;
+}
 .nav-content {
   background-color: #125d80b0;
 }
