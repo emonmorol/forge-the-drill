@@ -18,11 +18,15 @@ const Drills = () => {
   return (
     <div className="min-h-[100vh] max-w-7xl mx-auto">
       <h2>We MenuFacture</h2>
-      <div className="grid grid-cols-3 gap-y-8">
-        {drills?.data.map((drill) => (
-          <DrillCard key={drill._id} drill={drill} />
-        ))}
-      </div>
+      {error ? (
+        <p>{error.message}</p>
+      ) : (
+        <div className="grid grid-cols-3 gap-y-8">
+          {drills?.data.map((drill) => (
+            <DrillCard key={drill._id} drill={drill} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

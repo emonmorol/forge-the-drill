@@ -1,6 +1,17 @@
+.drill-card figure img {
+  background-color: #000;
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+.drill-card:hover figure img {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
 .drill-card-body h2 {
   position: relative;
-  display: inline;
+  display: flex;
+  align-items: center;
   color: black;
   z-index: 2;
 }
