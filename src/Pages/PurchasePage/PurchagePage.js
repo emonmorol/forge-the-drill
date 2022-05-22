@@ -15,6 +15,7 @@ const PurchasePage = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -37,8 +38,26 @@ const PurchasePage = () => {
     _id,
   } = drill?.data;
 
-  const onSubmit = (data) => {
-    setTotalPrice(+data.quantity * price);
+  const onSubmit = (orderInfo) => {
+    setTotalPrice(+orderInfo.quantity * price);
+
+    const placedOrder = {
+      ...orderInfo,
+      totalPrice,
+      userName: user?.displayName,
+      userEmail: user?.email,
+      productName: name,
+      productId: _id,
+    };
+
+    (async () => {
+      const { data } = await primaryAxios.post(
+        `/order?email=${user?.email}`,
+        placedOrder
+      );
+      console.log(data);
+      reset();
+    })();
   };
 
   return (
@@ -46,6 +65,9 @@ const PurchasePage = () => {
       <h2>Details</h2>
       <div className="flex justify-center items-center">
         <div className="w-1/3">
+          <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
+            Order Information
+          </h2>
           <form
             className="flex flex-col gap-6"
             onSubmit={handleSubmit(onSubmit)}
