@@ -21,7 +21,7 @@
   margin-bottom: 10px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s ease-in;
+  transition: transform 0.3s ease-in;
 }
 .button:hover::after {
   z-index: -2;
@@ -29,4 +29,8 @@
   width: 100%;
   transform: scaleX(1);
   transform-origin: left;
+}
+.button:hover {
+  color: white;
+  transition: color 0.3s ease-in 0.05s;
 }
