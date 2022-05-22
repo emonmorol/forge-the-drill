@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import MainButton from "../../../Components/MainButton/MainButton";
 import "./Drill.css";
 
@@ -6,17 +7,19 @@ const DrillCard = ({ drill }) => {
   const {
     // name,
     price,
-    // image,
+    image,
     minimumOrder,
     // description,
     availableQuantity,
+    _id,
   } = drill;
 
   return (
     <section class="drill-card card card-compact w-96 bg-teal-50 border-[0.5px] hover:shadow-2xl transition-all duration-300">
       <figure>
         <img
-          src="https://api.lorem.space/image/shoes?w=400&h=225"
+          src="https://i.ibb.co/FJLgV3j/drill1-2.png"
+          // src="https://api.lorem.space/image/shoes?w=400&h=225"
           alt="Shoes"
         />
       </figure>
@@ -34,7 +37,9 @@ const DrillCard = ({ drill }) => {
           <p className="text-left text-2xl uppercase font-medium">
             price: <span className="font-bold">${price}</span>
           </p>
-          <MainButton>Purchase</MainButton>
+          <Link to={`/purchase/${_id}`}>
+            <MainButton>Purchase</MainButton>
+          </Link>
         </div>
       </div>
     </section>

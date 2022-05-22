@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Division from "../../Components/Division/Division";
 import Loading from "../../Components/Loading/Loading";
@@ -24,12 +24,19 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
+
   if (loading) {
     return <Loading />;
-  }
-
-  if (user) {
-    console.log(user);
   }
 
   const onSubmit = (data) => {
@@ -57,7 +64,7 @@ const Login = () => {
 
   return (
     <div className="bg-login bg-no-repeat bg-cover h-[100vh]">
-      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 rounded-2xl shadow-2xl">
+      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-40 rounded-2xl shadow-2xl">
         <h2 className="pt-10 text-gray-100 uppercase text-3xl font-bold">
           Login
         </h2>

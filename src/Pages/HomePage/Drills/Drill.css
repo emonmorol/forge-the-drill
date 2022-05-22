@@ -1,5 +1,7 @@
+/* .drill-card figure {
+  padding: 10%;
+} */
 .drill-card figure img {
-  aspect-ratio: 16/9;
   object-fit: fill;
   background-color: #000;
   transform: scale(1);

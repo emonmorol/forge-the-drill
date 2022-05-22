@@ -1,8 +1,13 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 import "./Navbar.css";
 
 const Navbar = ({ children }) => {
+  const [user] = useAuthState(auth);
+
   return (
     <nav class="relative drawer drawer-end">
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -33,14 +38,29 @@ const Navbar = ({ children }) => {
                 <Link to="/home">Home</Link>
               </li>
               <li>
-                <Link to="/Blogs">Blogs</Link>
+                <Link to="/blogs">Blogs</Link>
               </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    <Link to="/myProfile">{user.displayName}</Link>
+                  </li>
+                  <li>
+                    <Link onClick={() => signOut(auth)} to="/login">
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">Register</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
