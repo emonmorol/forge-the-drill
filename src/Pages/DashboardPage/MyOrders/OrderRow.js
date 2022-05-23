@@ -1,6 +1,7 @@
 import React from "react";
 import primaryAxios from "../../../Api/primaryAxios";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const OrderRow = ({ order, index, refetch }) => {
   const { productName, productImage, quantity, totalPrice, _id } = order;
@@ -40,9 +41,12 @@ const OrderRow = ({ order, index, refetch }) => {
       <td>{quantity}</td>
       <td>{totalPrice}</td>
       <td className="flex gap-2 justify-center items-center h-full py-10">
-        <button className="bg-blue-200 px-5 py-1 rounded-xl font-semibold text-blue-500">
-          Pay
-        </button>
+        <Link
+          to={`/dashboard/payment/${_id}`}
+          className="bg-blue-200 px-5 py-1 rounded-xl font-semibold text-blue-500"
+        >
+          Payment
+        </Link>
         <button
           onClick={() => handleDelete(_id)}
           className="bg-red-200 px-5 py-1 rounded-xl font-semibold text-red-500"
