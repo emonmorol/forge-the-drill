@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
@@ -12,7 +12,6 @@ const PurchasePage = () => {
   const { id } = useParams();
   const [user] = useAuthState(auth);
   const [orderedQuantity, setOrderedQuantity] = useState(0);
-  const [remainingQuantity, setRemainingQuantity] = useState(0);
   const {
     register,
     handleSubmit,
@@ -21,25 +20,16 @@ const PurchasePage = () => {
     formState: { errors },
   } = useForm();
 
-  const {
-    data: drill,
-    isLoading,
-    refetch,
-  } = useQuery(["drill", id], () => primaryAxios.get(`/drill/${id}`));
+  const { data: drill, isLoading } = useQuery(["drill", id], () =>
+    primaryAxios.get(`/drill/${id}`)
+  );
 
   const orderingQuantity = watch("quantity");
-
-  // useEffect(() => {
-  //   if (drill) {
-  //     setOrderedQuantity(+orderingQuantity);
-  //     setRemainingQuantity(parseInt(drill?.data?.availableQuantity));
-  //   }
-  // }, []);
+  console.log(orderingQuantity);
 
   if (isLoading) {
     return <Loading />;
   }
-
   const {
     name,
     price,
@@ -52,12 +42,6 @@ const PurchasePage = () => {
 
   const onSubmit = (orderInfo) => {
     setOrderedQuantity(orderInfo.quantity);
-
-    const updatedQuantity = availableQuantity - orderInfo.quantity;
-
-    setRemainingQuantity(updatedQuantity);
-
-    console.log(updatedQuantity);
 
     const placedOrder = {
       ...orderInfo,
@@ -86,12 +70,6 @@ const PurchasePage = () => {
         });
       }
       reset();
-    })();
-
-    (async () => {
-      const { data } = await primaryAxios.patch(`/drill/${_id}`, {
-        remainingQuantity,
-      });
     })();
   };
 
@@ -187,7 +165,7 @@ const PurchasePage = () => {
                 <p className="error">{errors.quantity.message}</p>
               )}
             </div>
-            <button className="button w-full" type="submit">
+            <button className="btn btn-primary w-full" type="submit">
               Order Now
             </button>
           </form>
@@ -200,16 +178,10 @@ const PurchasePage = () => {
             <h2 class="font-bold py-2 text-4xl uppercase">
               Electric Drilling Machine
             </h2>
-            <p className="w-[60ch] my-5 ">
-              If a dog chews shoes whose shoes does he choose? If a dog chews
-              shoes whose shoes does he choose?
-            </p>
+            <p className="w-[60ch] my-5 ">{description}</p>
             <p className="text-left">
               Available :{" "}
-              <span className="font-bold text-lg">
-                {remainingQuantity || availableQuantity}
-              </span>{" "}
-              Pcs
+              <span className="font-bold text-lg">{availableQuantity}</span> Pcs
             </p>
             <p className="text-left">
               Minimum Order :{" "}
