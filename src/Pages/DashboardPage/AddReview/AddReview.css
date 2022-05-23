@@ -1,0 +1,16 @@
+.review {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 13px 13px 26px #e8e8e8, -13px -13px 26px #125e8140;
+  padding: 50px;
+  margin-top: 10%;
+  width: 50%;
+}
+
+.review input,
+textarea {
+  border: 0px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: inset -6px -6px 12px #f5f5f5, inset 6px 6px 12px #125e8140;
+}

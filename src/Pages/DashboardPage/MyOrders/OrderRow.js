@@ -52,22 +52,22 @@ const OrderRow = ({ order, index, refetch }) => {
         {" "}
         {transactionId ? transactionId : "Unpaid"}
       </td>
-      <td className="flex gap-2 justify-center items-center h-full py-10">
+      <td className="flex gap-2 justify-center items-center h-full p-10">
         {transactionId ? (
-          <button className="bg-green-200 px-5 py-1 rounded-xl font-semibold text-green-500">
+          <button className="bg-green-200 px-5 py-1 w-full rounded-xl font-semibold text-green-500">
             Paid
           </button>
         ) : (
           <>
             <Link
               to={`/dashboard/payment/${_id}`}
-              className="bg-blue-200 px-5 py-1 rounded-xl font-semibold text-blue-500"
+              className="w-1/2 bg-blue-200 px-5 py-1 rounded-xl font-semibold text-blue-500 text-center"
             >
               Payment
             </Link>
             <button
               onClick={() => handleDelete(_id)}
-              className="bg-red-200 px-5 py-1 rounded-xl font-semibold text-red-500"
+              className="w-1/2 bg-red-200 px-5 py-1 rounded-xl font-semibold text-red-500 text-center"
             >
               Cancel
             </button>

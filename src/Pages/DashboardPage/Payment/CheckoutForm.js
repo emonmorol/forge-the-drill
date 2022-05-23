@@ -10,7 +10,6 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
   const [paymentError, setPaymentError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [isPaying, setIsPaying] = useState(false);
-  const [transactionId, setTransactionId] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,7 +60,6 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
       setIsPaying(false);
     } else {
       setPaymentError("");
-      setTransactionId(paymentIntent.id);
       if (paymentIntent.id) {
         swal(
           "Payment Successful",
