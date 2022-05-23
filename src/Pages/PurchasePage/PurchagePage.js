@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
@@ -11,7 +11,8 @@ import swal from "sweetalert";
 const PurchasePage = () => {
   const { id } = useParams();
   const [user] = useAuthState(auth);
-  const [newQuantity, setNewQuantity] = useState(0);
+  const [orderedQuantity, setOrderedQuantity] = useState(0);
+  const [remainingQuantity, setRemainingQuantity] = useState(0);
   const {
     register,
     handleSubmit,
@@ -20,14 +21,24 @@ const PurchasePage = () => {
     formState: { errors },
   } = useForm();
 
-  const { data: drill, isLoading } = useQuery(["drill", id], () =>
-    primaryAxios.get(`/drill/${id}`)
-  );
+  const {
+    data: drill,
+    isLoading,
+    refetch,
+  } = useQuery(["drill", id], () => primaryAxios.get(`/drill/${id}`));
+
+  const orderingQuantity = watch("quantity");
+
+  // useEffect(() => {
+  //   if (drill) {
+  //     setOrderedQuantity(+orderingQuantity);
+  //     setRemainingQuantity(parseInt(drill?.data?.availableQuantity));
+  //   }
+  // }, []);
 
   if (isLoading) {
     return <Loading />;
   }
-  const orderedQuantity = watch("quantity");
 
   const {
     name,
@@ -40,7 +51,14 @@ const PurchasePage = () => {
   } = drill?.data;
 
   const onSubmit = (orderInfo) => {
-    setNewQuantity(orderInfo.quantity);
+    setOrderedQuantity(orderInfo.quantity);
+
+    const updatedQuantity = availableQuantity - orderInfo.quantity;
+
+    setRemainingQuantity(updatedQuantity);
+
+    console.log(updatedQuantity);
+
     const placedOrder = {
       ...orderInfo,
       userName: user?.displayName,
@@ -68,6 +86,12 @@ const PurchasePage = () => {
         });
       }
       reset();
+    })();
+
+    (async () => {
+      const { data } = await primaryAxios.patch(`/drill/${_id}`, {
+        remainingQuantity,
+      });
     })();
   };
 
@@ -155,7 +179,7 @@ const PurchasePage = () => {
                 <p className="bg-secondary py-3 w-full text-center rounded-lg text-lg">
                   Total Price :{" "}
                   <span className="font-bold text-primary">
-                    ${(orderedQuantity || newQuantity) * price}
+                    ${(orderingQuantity || orderedQuantity) * price}
                   </span>
                 </p>
               </div>
@@ -182,7 +206,10 @@ const PurchasePage = () => {
             </p>
             <p className="text-left">
               Available :{" "}
-              <span className="font-bold text-lg">{availableQuantity}</span> Pcs
+              <span className="font-bold text-lg">
+                {remainingQuantity || availableQuantity}
+              </span>{" "}
+              Pcs
             </p>
             <p className="text-left">
               Minimum Order :{" "}
