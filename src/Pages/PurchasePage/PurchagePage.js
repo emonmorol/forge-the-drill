@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
@@ -11,6 +11,7 @@ import swal from "sweetalert";
 const PurchasePage = () => {
   const { id } = useParams();
   const [user] = useAuthState(auth);
+  const [newQuantity, setNewQuantity] = useState(0);
   const {
     register,
     handleSubmit,
@@ -39,6 +40,7 @@ const PurchasePage = () => {
   } = drill?.data;
 
   const onSubmit = (orderInfo) => {
+    setNewQuantity(orderInfo.quantity);
     const placedOrder = {
       ...orderInfo,
       userName: user?.displayName,
@@ -153,7 +155,7 @@ const PurchasePage = () => {
                 <p className="bg-secondary py-3 w-full text-center rounded-lg text-lg">
                   Total Price :{" "}
                   <span className="font-bold text-primary">
-                    ${orderedQuantity * price}
+                    ${(orderedQuantity || newQuantity) * price}
                   </span>
                 </p>
               </div>

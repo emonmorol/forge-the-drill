@@ -1,17 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
+import { toast } from "react-toastify";
+import primaryAxios from "../../../Api/primaryAxios";
 import auth from "../../../firebase.init";
 import "./AddReview.css";
 
 const AddReview = () => {
   const [user] = useAuthState(auth);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const newReview = {
+      ...data,
+      email: user?.email,
+      name: user?.displayName,
+      image: user?.photoURL,
+    };
+    (async () => {
+      const { data } = await primaryAxios.post("/review", newReview);
+      console.log(data);
+      if (data.acknowledged) {
+        toast.success("Review Added Successfully");
+        reset();
+      }
+    })();
+    console.log(newReview);
+  };
   return (
     <div className="review">
       <h2 className="text-xl mb-5 text-center font-bold uppercase text-primary">
