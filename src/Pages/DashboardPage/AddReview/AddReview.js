@@ -25,13 +25,11 @@ const AddReview = () => {
     };
     (async () => {
       const { data } = await primaryAxios.post("/review", newReview);
-      console.log(data);
       if (data.acknowledged) {
         toast.success("Review Added Successfully");
         reset();
       }
     })();
-    console.log(newReview);
   };
   return (
     <div className="review">

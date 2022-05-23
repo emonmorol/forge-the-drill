@@ -3,11 +3,14 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import useRole from "../../Hooks/useRole";
 import Loading from "../Loading/Loading";
 import "./Navbar.css";
 
 const Navbar = ({ children }) => {
   const [user, loading] = useAuthState(auth);
+
+  const [role] = useRole();
   if (loading) {
     return <Loading />;
   }
@@ -46,9 +49,17 @@ const Navbar = ({ children }) => {
               </li>
               {user ? (
                 <>
-                  <li>
-                    <Link to="/dashboard/my-orders">Dashboard</Link>
-                  </li>
+                  {role === "admin" && (
+                    <li>
+                      <Link to="/dashboard/manage-all-orders">Dashboard</Link>
+                    </li>
+                  )}
+                  {role !== "admin" && (
+                    <li>
+                      <Link to="/dashboard/my-orders">Dashboard</Link>
+                    </li>
+                  )}
+
                   <li>
                     <Link to="/myProfile">
                       {user?.displayName ? user.displayName : "User"}

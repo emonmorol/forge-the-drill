@@ -12,7 +12,6 @@ const OrderRow = ({ order, index, refetch }) => {
     _id,
     transactionId,
   } = order;
-  console.log(transactionId);
 
   const handleDelete = (id) => {
     swal({

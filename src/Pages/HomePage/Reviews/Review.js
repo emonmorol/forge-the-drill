@@ -2,7 +2,6 @@ import React from "react";
 
 const Review = ({ review }) => {
   const { name, image, ratings, reviewContent, email } = review;
-  console.log(image);
   return (
     <div class="flex flex-col bg-base-100 hover:shadow-2xl transition-all duration-300 rounded-2xl border-[0.1px] p-6 overflow-hidden">
       <div className="flex items-center gap-3 mb-5">

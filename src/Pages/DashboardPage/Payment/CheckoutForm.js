@@ -66,7 +66,6 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
           `Your Transaction Id Is ${paymentIntent.id}`,
           "success"
         ).then((value) => {
-          console.log(value);
           navigate("/dashboard/my-orders");
         });
       }
@@ -78,7 +77,6 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
       const { data } = await primaryAxios.put(`/order`, payment);
       if (data) {
         setIsPaying(false);
-        console.log(data);
       }
     }
   };

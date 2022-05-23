@@ -7,7 +7,7 @@
   width: 50%;
 }
 
-.review input,
+.review select,
 textarea {
   border: 0px;
   border-radius: 10px;
