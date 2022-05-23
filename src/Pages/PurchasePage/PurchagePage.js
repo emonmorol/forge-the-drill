@@ -65,7 +65,6 @@ const PurchasePage = () => {
           },
         });
       }
-      console.log(data);
       reset();
     })();
   };

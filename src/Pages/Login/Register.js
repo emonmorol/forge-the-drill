@@ -25,7 +25,6 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  console.log(user?.user);
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -39,7 +38,6 @@ const Register = () => {
           name: name,
           email: user?.user?.email,
         });
-        console.log(data);
       })();
 
       navigate(from, { replace: true });

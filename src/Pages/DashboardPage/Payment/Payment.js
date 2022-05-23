@@ -20,10 +20,8 @@ const Payment = () => {
     return <p>loading ...</p>;
   }
 
-  console.log(data);
-
   return (
-    <section className="mx-auto w-full lg:w-1/2 border-2 p-4 lg:p-10 rounded-2xl shadow-xl">
+    <section className="mx-auto w-full lg:w-1/2 border-2 p-4 lg:p-10 rounded-2xl">
       <div className="flex flex-col w-full gap-5">
         <div className="flex flex-col">
           <h2 class="text-4xl font-bold text-gray-600 uppercase text-center">
@@ -47,7 +45,10 @@ const Payment = () => {
           {data.data.address}
         </span>
         <Elements stripe={stripePromise}>
-          <CheckoutForm totalAmount={data.data.totalPrice} />
+          <CheckoutForm
+            totalAmount={data.data.totalPrice}
+            orderInfo={data.data}
+          />
         </Elements>
       </div>
     </section>

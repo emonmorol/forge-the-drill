@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import primaryAxios from "../../../Api/primaryAxios";
+import swal from "sweetalert";
 
-const CheckoutForm = ({ totalAmount }) => {
+const CheckoutForm = ({ totalAmount, orderInfo }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [paymentError, setPaymentError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await primaryAxios.post("/create-payment-intent", {
+        totalAmount: totalAmount,
+      });
+      if (data?.clientSecret) {
+        setClientSecret(data.clientSecret);
+      }
+    })();
+  }, [totalAmount]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -12,10 +27,44 @@ const CheckoutForm = ({ totalAmount }) => {
       return;
     }
 
+    const card = elements.getElement(CardElement);
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
-      card: elements.getElement(CardElement),
+      card,
     });
+
+    if (error) {
+      setPaymentError(error?.message);
+    } else {
+      setPaymentError("");
+    }
+
+    const { paymentIntent, error: intentError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: orderInfo.userName,
+            email: orderInfo.userEmail,
+          },
+        },
+      });
+
+    if (intentError) {
+      setPaymentError(intentError?.message);
+      //   setProcessing(false);
+    } else {
+      setPaymentError("");
+      //   setTransactionId(paymentIntent.id);
+      if (paymentIntent.id) {
+        swal(
+          "Payment Successful",
+          `Your Transaction Id Is ${paymentIntent.id}`,
+          "success"
+        );
+      }
+    }
   };
 
   return (
@@ -37,8 +86,10 @@ const CheckoutForm = ({ totalAmount }) => {
         }}
       />
       <div className="flex justify-between mt-6 items-center">
-        <span className="flex-1 text-md font-medium flex items-center">
-          <span>Total Amount :</span>
+        <span className="flex-1 flex items-center">
+          <span className=" text-md font-semibold uppercase ">
+            Total Amount :
+          </span>
           <span className="text-2xl font-bold text-primary">
             ${totalAmount}
           </span>

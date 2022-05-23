@@ -20,7 +20,6 @@ const Social = () => {
           name: user?.user?.displayName,
           email: user?.user?.email,
         });
-        console.log(data);
       })();
       navigate(from, { replace: true });
     }
