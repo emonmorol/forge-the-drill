@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "react-query";
 import primaryAxios from "../../../Api/primaryAxios";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -15,11 +15,12 @@ const MyOrders = () => {
   } = useQuery(["orders", user?.email], () =>
     primaryAxios.get(`/order?email=${user?.email}`)
   );
+
+  useEffect(() => {}, []);
+
   if (isLoading) {
     return <Loading />;
   }
-  console.log(orders.data);
-
   return (
     <div className="w-full px-10">
       <h2> My Orders</h2>
