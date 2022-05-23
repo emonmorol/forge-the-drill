@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <div class="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content bg-[#125e8124] flex flex-col items-center justify-center">
+      <div class="drawer-content bg-[#125e8124] flex flex-col items-center ">
         <label
           for="my-drawer-2"
           class="btn btn-primary drawer-button lg:hidden"
@@ -18,19 +18,19 @@ const Dashboard = () => {
         <label for="my-drawer-2" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-[#125e8140] text-base-content">
           <li>
-            <Link className="uppercase" to="/dashboard/my-orders">
+            <NavLink className="uppercase" to="/dashboard/my-orders">
               My Orders
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="uppercase" to="/dashboard/add-review">
+            <NavLink className="uppercase" to="/dashboard/add-review">
               Add A Review
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="uppercase" to="/dashboard/profile">
+            <NavLink className="uppercase" to="/dashboard/profile">
               My Profile
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

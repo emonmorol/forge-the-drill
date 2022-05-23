@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import primaryAxios from "../../Api/primaryAxios";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
+import swal from "sweetalert";
 
 const PurchasePage = () => {
   const { id } = useParams();
@@ -43,11 +44,12 @@ const PurchasePage = () => {
 
     const placedOrder = {
       ...orderInfo,
-      totalPrice,
       userName: user?.displayName,
       userEmail: user?.email,
+      totalPrice: +orderInfo.quantity * price,
       productName: name,
       productId: _id,
+      productImage: image,
     };
 
     (async () => {
@@ -55,6 +57,17 @@ const PurchasePage = () => {
         `/order?email=${user?.email}`,
         placedOrder
       );
+      if (data.success) {
+        swal("Order Placed", "Please Pay To Proceed", "success", {
+          button: {
+            text: "Okay",
+            value: true,
+            visible: true,
+            className: "bg-primary",
+            closeModal: true,
+          },
+        });
+      }
       console.log(data);
       reset();
     })();
