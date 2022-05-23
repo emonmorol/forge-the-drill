@@ -8,10 +8,10 @@ import useRole from "../Hooks/useRole";
 
 function RequireAdmin() {
   const [user, loading] = useAuthState(auth);
-  const [role] = useRole();
+  const [role, roleLoading] = useRole();
   let location = useLocation();
 
-  if (loading) {
+  if (loading || roleLoading) {
     return <Loading />;
   }
 

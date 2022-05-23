@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import Loading from "../../../Components/Loading/Loading";
 import auth from "../../../firebase.init";
+import useRole from "../../../Hooks/useRole";
 import "./Profile.css";
 import UpdateProfileForm from "./UpdateProfileForm";
 
 const Profile = () => {
   const [{ email, displayName }] = useAuthState(auth);
   const [isEdit, setIsEdit] = useState(null);
+  const [role, roleLoading] = useRole();
 
   const {
     register,
@@ -16,6 +19,10 @@ const Profile = () => {
   } = useForm();
 
   const onSubmit = async (data) => console.log(data);
+
+  if (roleLoading) {
+    return <Loading />;
+  }
 
   return (
     <div class="container w-full mx-auto my-5 p-5">
@@ -41,7 +48,7 @@ const Profile = () => {
                 <span>Role</span>
                 <span class="ml-auto">
                   <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">
-                    Active
+                    {role ? "Admin" : "User"}
                   </span>
                 </span>
               </li>
