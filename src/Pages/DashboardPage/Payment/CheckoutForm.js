@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import primaryAxios from "../../../Api/primaryAxios";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ totalAmount, orderInfo }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [paymentError, setPaymentError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [isPaying, setIsPaying] = useState(false);
+  const [transactionId, setTransactionId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -22,6 +26,7 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsPaying(true);
 
     if (elements == null) {
       return;
@@ -53,16 +58,29 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
 
     if (intentError) {
       setPaymentError(intentError?.message);
-      //   setProcessing(false);
+      setIsPaying(false);
     } else {
       setPaymentError("");
-      //   setTransactionId(paymentIntent.id);
+      setTransactionId(paymentIntent.id);
       if (paymentIntent.id) {
         swal(
           "Payment Successful",
           `Your Transaction Id Is ${paymentIntent.id}`,
           "success"
-        );
+        ).then((value) => {
+          console.log(value);
+          navigate("/dashboard/my-orders");
+        });
+      }
+      const payment = {
+        orderId: orderInfo._id,
+        transactionId: paymentIntent.id,
+      };
+
+      const { data } = await primaryAxios.put(`/order`, payment);
+      if (data) {
+        setIsPaying(false);
+        console.log(data);
       }
     }
   };
@@ -85,6 +103,9 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
           },
         }}
       />
+      {paymentError && (
+        <p className="mt-5 -mb-5 text-red-600 text-center">{paymentError}</p>
+      )}
       <div className="flex justify-between mt-6 items-center">
         <span className="flex-1 flex items-center">
           <span className=" text-md font-semibold uppercase ">
@@ -95,9 +116,11 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
           </span>
         </span>
         <button
-          className="flex-1 w-full bg-primary text-white uppercase py-1.5 rounded-2xl"
+          className={`btn flex-1 w-full bg-primary text-white uppercase py-1.5 rounded-2xl ${
+            isPaying && "loading"
+          }`}
           type="submit"
-          disabled={!stripe || !elements}
+          disabled={!stripe || !elements || !clientSecret}
         >
           Pay
         </button>

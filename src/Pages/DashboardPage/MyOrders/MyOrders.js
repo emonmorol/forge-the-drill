@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import primaryAxios from "../../../Api/primaryAxios";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -26,12 +26,13 @@ const MyOrders = () => {
         <table class="table w-full">
           <thead className="bg-accent">
             <tr>
-              <th>Serial No.</th>
-              <th>Image</th>
-              <th>Product Name</th>
-              <th>Quantity (PCS)</th>
-              <th>Price (USD)</th>
-              <th></th>
+              <th className="text-center">Serial No.</th>
+              <th className="text-center">Image</th>
+              <th className="text-center">Product Name</th>
+              <th className="text-center">Quantity (PCS)</th>
+              <th className="text-center">Price (USD)</th>
+              <th className="text-center">Transaction ID</th>
+              <th className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
