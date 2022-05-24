@@ -77,7 +77,7 @@ const Profile = () => {
               <li class="flex items-center py-3">
                 <span>Role</span>
                 <span class="ml-auto">
-                  <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                  <span class="bg-primary py-1 px-2 rounded text-white text-sm">
                     {role ? "Admin" : "User"}
                   </span>
                 </span>
@@ -156,10 +156,19 @@ const Profile = () => {
                     LinkedIn profile link
                   </div>
                   <div class="px-2 py-2">
-                    {" "}
-                    {user?.data?.linkedInLink
-                      ? user?.data?.linkedInLink
-                      : "- - -"}{" "}
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={
+                        user?.data?.linkedInLink
+                          ? user?.data?.linkedInLink
+                          : "#"
+                      }
+                    >
+                      {user?.data?.linkedInLink
+                        ? user?.data?.linkedInLink
+                        : "- - -"}{" "}
+                    </a>{" "}
                   </div>
                 </div>
               </div>

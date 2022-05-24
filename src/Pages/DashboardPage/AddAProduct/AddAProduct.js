@@ -1,14 +1,25 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import primaryAxios from "../../../Api/primaryAxios";
 
 const AddAProduct = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => console.log(data);
+  const onSubmit = async (productInfo) => {
+    (async () => {
+      const { data } = await primaryAxios.post("/drill", productInfo);
+      if (data.acknowledged) {
+        toast.success("Drill Added Successfully");
+        reset();
+      }
+    })();
+  };
 
   return (
     <>

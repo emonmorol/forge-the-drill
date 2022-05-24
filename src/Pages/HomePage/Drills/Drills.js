@@ -23,7 +23,7 @@ const Drills = () => {
           <p>{error.message}</p>
         ) : (
           <div className="grid grid-cols-3 gap-y-8">
-            {drills?.data.slice(0, 3).map((drill) => (
+            {drills?.data.map((drill) => (
               <DrillCard key={drill._id} drill={drill} />
             ))}
           </div>
