@@ -64,7 +64,10 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
         swal(
           "Payment Successful",
           `Your Transaction Id Is ${paymentIntent.id}`,
-          "success"
+          "success",
+          {
+            className: "rounded-3xl",
+          }
         ).then((value) => {
           navigate("/dashboard/my-orders");
         });

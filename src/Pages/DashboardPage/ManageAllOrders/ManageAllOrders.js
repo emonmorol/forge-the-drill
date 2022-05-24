@@ -23,14 +23,15 @@ const ManageAllOrders = () => {
         <table class="table w-full">
           <thead className="bg-accent">
             <tr>
-              <th className="text-center">Serial No.</th>
-              <th className="text-center">Product Name</th>
-              <th className="text-center">User Name</th>
-              <th className="text-center">User Email</th>
+              <th className="">Serial No.</th>
+              <th className="">Product Name</th>
+              <th className="">User Name</th>
+              <th className="">User Email</th>
               <th className="text-center">Quantity (PCS)</th>
               <th className="text-center">Price (USD)</th>
-              <th className="text-center">Status</th>
               <th className="text-center">Payment</th>
+              <th className="text-center">Status</th>
+              <th className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>

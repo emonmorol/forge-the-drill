@@ -68,7 +68,7 @@ const PurchasePage = () => {
             text: "Okay",
             value: true,
             visible: true,
-            className: "bg-primary",
+            className: "rounded-3xl",
             closeModal: true,
           },
         });

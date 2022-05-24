@@ -14,11 +14,12 @@ const OrderRow = ({ order, index, refetch }) => {
     status,
   } = order;
 
-  const handleDelete = (id) => {
+  const handleCancelOrder = (id) => {
     swal({
       title: "Are you sure?",
       text: "Once Cancelled,This Process Can't Be Undone",
       icon: "warning",
+      className: "rounded-3xl",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
@@ -28,25 +29,28 @@ const OrderRow = ({ order, index, refetch }) => {
           if (data.deletedCount > 0) {
             swal("Order Cancelled", {
               icon: "success",
+              className: "rounded-3xl",
             });
 
             refetch();
           }
         })();
       } else {
-        swal("Appreciate Your Not Cancelling The order");
+        swal("Appreciate Your Not Cancelling The order", {
+          className: "rounded-3xl",
+        });
       }
     });
   };
 
   return (
-    <tr>
-      <td className="text-center">{index + 1}</td>
-      <td className="text-center">
+    <tr className="px-5">
+      <td className="">{index + 1}</td>
+      <td className="">
         <img className="w-20 rounded-full" src={productImage} alt="" />
       </td>
-      <td className="text-center">{productName}</td>
-      <td className="text-center">{quantity}</td>
+      <td className="">{productName}</td>
+      <td className="">{quantity}</td>
       <td className="text-center">{totalPrice}</td>
       <td className="text-center">
         {" "}
@@ -54,7 +58,30 @@ const OrderRow = ({ order, index, refetch }) => {
       </td>
 
       <td className="text-center">{status}</td>
-      <td className="flex gap-2 justify-center items-center h-full p-10">
+      <td className="text-center">
+        {transactionId ? (
+          <button className="cursor-not-allowed text-sm py-1 px-8 rounded-lg uppercase font-semibold bg-green-100 hover:bg-green-200 text-green-500">
+            Paid
+          </button>
+        ) : (
+          <Link
+            to={`/dashboard/payment/${_id}`}
+            className="cursor-pointer text-sm py-1 px-4 rounded-lg uppercase font-semibold  bg-blue-100 hover:bg-blue-200 text-blue-500"
+          >
+            Payment
+          </Link>
+        )}
+      </td>
+      <td className="text-center">
+        <button
+          disabled={transactionId}
+          className="btn btn-xs px-3  bg-red-100 hover:bg-red-200 text-red-500"
+          onClick={() => handleCancelOrder(_id)}
+        >
+          Cancel
+        </button>
+      </td>
+      {/* <td className="flex gap-2 justify-center items-center h-full p-10">
         {transactionId ? (
           <button className="bg-green-200 px-5 py-1 w-full rounded-xl font-semibold text-green-500">
             Paid
@@ -68,14 +95,14 @@ const OrderRow = ({ order, index, refetch }) => {
               Payment
             </Link>
             <button
-              onClick={() => handleDelete(_id)}
+              onClick={() => handleCancelOrder(_id)}
               className="w-1/2 bg-red-200 px-5 py-1 rounded-xl font-semibold text-red-500 text-center"
             >
               Cancel
             </button>
           </>
         )}
-      </td>
+      </td> */}
     </tr>
   );
 };
