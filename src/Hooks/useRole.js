@@ -7,6 +7,7 @@ const useRole = () => {
   const [user] = useAuthState(auth);
   const [roleLoading, setRoleLoading] = useState(true);
   const [role, setRole] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -20,10 +21,10 @@ const useRole = () => {
         setRole("");
         setRoleLoading(false);
       }
+      setUserName(data?.name);
     })();
   }, [user]);
-  console.log(role);
-  return [role, roleLoading];
+  return [role, roleLoading, userName];
 };
 
 export default useRole;

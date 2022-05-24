@@ -10,8 +10,8 @@ import "./Navbar.css";
 const Navbar = ({ children }) => {
   const [user, loading] = useAuthState(auth);
 
-  const [role] = useRole();
-  if (loading) {
+  const [role, roleLoading, userName] = useRole();
+  if (loading || roleLoading) {
     return <Loading />;
   }
 
@@ -61,9 +61,7 @@ const Navbar = ({ children }) => {
                   )}
 
                   <li>
-                    <Link to="/myProfile">
-                      {user?.displayName ? user.displayName : "User"}
-                    </Link>
+                    <Link to="/myProfile">{userName ? userName : "User"}</Link>
                   </li>
                   <li>
                     <Link onClick={() => signOut(auth)} to="/login">

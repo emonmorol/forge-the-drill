@@ -39,6 +39,9 @@ const PurchasePage = () => {
     availableQuantity,
     _id,
   } = drill?.data;
+  console.log(
+    orderingQuantity >= minimumOrder || orderingQuantity <= availableQuantity
+  );
 
   const onSubmit = (orderInfo) => {
     setOrderedQuantity(orderInfo.quantity);
@@ -165,7 +168,16 @@ const PurchasePage = () => {
                 <p className="error">{errors.quantity.message}</p>
               )}
             </div>
-            <button className="btn btn-primary w-full" type="submit">
+            <button
+              disabled={
+                orderingQuantity < minimumOrder ||
+                orderingQuantity > availableQuantity
+                  ? true
+                  : false
+              }
+              className="btn btn-primary w-full"
+              type="submit"
+            >
               Order Now
             </button>
           </form>
