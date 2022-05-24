@@ -184,10 +184,6 @@ const AddAProduct = () => {
                 value: true,
                 message: "Description is required",
               },
-              maxLength: {
-                value: 250,
-                message: "Maximum 250 Characters",
-              },
             })}
             class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-password"

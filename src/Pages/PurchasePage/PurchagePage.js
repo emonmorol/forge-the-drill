@@ -79,10 +79,10 @@ const PurchasePage = () => {
   };
 
   return (
-    <>
-      <div className="overflow-hidden min-h-screen">
+    <div className="flex flex-col">
+      <div className="overflow-hidden">
         <h2>Details</h2>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center pt-10">
           <div className="w-1/3">
             <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
               Order Information
@@ -187,15 +187,12 @@ const PurchasePage = () => {
               </button>
             </form>
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center -mt-10">
             <div className="w-2/3 z-0">
-              <img src="https://i.ibb.co/FJLgV3j/drill1-2.png" alt="" />
+              <img src={image} alt="" />
             </div>
             <div className="drill-card-body z-10">
-              <h2 class="font-bold py-2 text-4xl uppercase">
-                Electric Drilling Machine
-              </h2>
-              <p className="w-[60ch] my-5 ">{description}</p>
+              <h2 class="font-bold py-2 text-4xl uppercase">{name}</h2>
               <p className="text-left">
                 Available :{" "}
                 <span className="font-bold text-lg">{availableQuantity}</span>{" "}
@@ -209,12 +206,13 @@ const PurchasePage = () => {
                 price: <span className="font-bold">${price}</span>{" "}
                 <span className="text-sm">per unit</span>
               </p>
+              <p className="w-[60ch] my-5 ">{description}</p>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

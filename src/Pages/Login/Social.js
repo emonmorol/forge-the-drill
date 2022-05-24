@@ -20,6 +20,9 @@ const Social = () => {
           name: user?.user?.displayName,
           email: user?.user?.email,
         });
+        if (data.token) {
+          localStorage.setItem("authorizationToken", data.token);
+        }
       })();
       navigate(from, { replace: true });
     }

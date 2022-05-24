@@ -77,7 +77,13 @@ const Navbar = ({ children }) => {
                       </CustomLink>
                     </li>
                     <li>
-                      <CustomLink onClick={() => signOut(auth)} to="/login">
+                      <CustomLink
+                        onClick={() => {
+                          signOut(auth);
+                          localStorage.removeItem("authorizationToken");
+                        }}
+                        to="/login"
+                      >
                         Logout
                       </CustomLink>
                     </li>

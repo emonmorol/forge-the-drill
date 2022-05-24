@@ -17,8 +17,10 @@ const Drills = () => {
 
   return (
     <div className="section-bg bg-white">
-      <div className=" max-w-7xl mx-auto py-20">
-        <h2>We MenuFacture</h2>
+      <div className="z-30 max-w-7xl mx-auto py-20">
+        <div className="mx-auto w-full">
+          <h1 className="section-title">We MenuFacture</h1>
+        </div>
         {error ? (
           <p>{error.message}</p>
         ) : (

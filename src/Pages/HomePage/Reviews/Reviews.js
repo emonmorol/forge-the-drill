@@ -16,7 +16,7 @@ const Reviews = () => {
 
   return (
     <section className="bg-neutral p-20">
-      <div className="min-h-[60vh]">
+      <div className="min-h-[60vh] mx-auto">
         <h2>This is review section</h2>
         <div className="grid grid-cols-4 gap-8">
           {reviews.data.map((review) => (
@@ -25,7 +25,7 @@ const Reviews = () => {
         </div>
         <div className="w-full flex justify-center mt-10">
           <Link to="/dashboard/add-review" className="button w-72 text-center">
-            Add An Order
+            Say Something About Us
           </Link>
         </div>
       </div>

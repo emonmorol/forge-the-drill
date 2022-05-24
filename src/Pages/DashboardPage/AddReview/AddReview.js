@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import primaryAxios from "../../../Api/primaryAxios";
 import auth from "../../../firebase.init";
@@ -67,8 +66,8 @@ const AddReview = () => {
                 message: "Content is required",
               },
               maxLength: {
-                value: 250,
-                message: `Maximum 250 Characters`,
+                value: 160,
+                message: `Maximum 160 Characters`,
               },
             })}
             placeholder="Enter Your Thought Here"

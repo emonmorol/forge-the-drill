@@ -17,6 +17,7 @@ function RequireUser() {
 
   if (!user || role === "admin") {
     signOut(auth);
+    localStorage.removeItem("authorizationToken");
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
