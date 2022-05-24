@@ -8,6 +8,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import Dashboard from "./Pages/DashboardPage/Dashboard/Dashboard";
 import Profile from "./Pages/DashboardPage/Profile/Profile";
 import NotFound from "./Pages/NotFound/NotFound";
+import PurchasePage from "./Pages/PurchasePage/PurchagePage";
 import { adminRoutes } from "./Routes/adminRoutes";
 import { privateRoute } from "./Routes/privateRoute";
 import { publicDashboard } from "./Routes/publicDashboard";

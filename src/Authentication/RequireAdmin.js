@@ -15,11 +15,8 @@ function RequireAdmin() {
     return <Loading />;
   }
 
-  console.log(user);
-  console.log(role);
   if (!user || role !== "admin") {
-    console.log("inside require admin");
-    // signOut(auth);
+    signOut(auth);
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 

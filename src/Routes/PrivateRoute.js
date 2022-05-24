@@ -1,5 +1,4 @@
 import Blogs from "../Pages/Blogs/Blogs";
-// import Profile from "../Pages/DashboardPage/Profile/Profile";
 import PurchasePage from "../Pages/PurchasePage/PurchagePage";
 
 export const privateRoute = [
