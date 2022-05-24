@@ -5,6 +5,7 @@ import Drills from "../Drills/Drills";
 import Reviews from "../Reviews/Reviews";
 import Footer from "../../../Components/Footer/Footer";
 import DrillFeature from "../DrillFeature/DrillFeature";
+import Process from "../Process/Process";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <DrillFeature />
       <Drills />
       <Reviews />
+      <Process />
       <Footer />
     </div>
   );
