@@ -51,6 +51,9 @@ const Navbar = ({ children }) => {
                 <li>
                   <CustomLink to="/blogs">Blogs</CustomLink>
                 </li>
+                <li>
+                  <CustomLink to="/portfolio">Portfolio</CustomLink>
+                </li>
                 {user ? (
                   <>
                     {role === "admin" && (

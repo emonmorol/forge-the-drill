@@ -7,6 +7,7 @@ import primaryAxios from "../../Api/primaryAxios";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.init";
 import swal from "sweetalert";
+import Footer from "../../Components/Footer/Footer";
 
 const PurchasePage = () => {
   const { id } = useParams();
@@ -78,136 +79,142 @@ const PurchasePage = () => {
   };
 
   return (
-    <div className="overflow-hidden">
-      <h2>Details</h2>
-      <div className="flex justify-center items-center">
-        <div className="w-1/3">
-          <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
-            Order Information
-          </h2>
-          <form
-            className="flex flex-col gap-6"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <input
-              type="text"
-              value={user?.displayName}
-              disabled
-              class="input input-bordered w-full"
-            />
-            <input
-              type="email"
-              value={user?.email}
-              disabled
-              class="input input-bordered w-full"
-            />
-            <div>
+    <>
+      <div className="overflow-hidden min-h-screen">
+        <h2>Details</h2>
+        <div className="flex justify-center items-center">
+          <div className="w-1/3">
+            <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
+              Order Information
+            </h2>
+            <form
+              className="flex flex-col gap-6"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <input
                 type="text"
-                {...register("address", {
-                  required: {
-                    value: true,
-                    message: "Address is required",
-                  },
-                })}
-                placeholder="Enter your address"
+                value={user?.displayName}
+                disabled
                 class="input input-bordered w-full"
               />
-              {errors?.address && (
-                <p className="error">{errors.address.message}</p>
-              )}
-            </div>
-            <div>
               <input
-                type="number"
-                {...register("phone", {
-                  required: {
-                    value: true,
-                    message: "Phone is required",
-                  },
-                  minLength: {
-                    value: 9,
-                    message: `Please Provide Valid Phone Number`,
-                  },
-                })}
-                placeholder="Enter your mobile number"
+                type="email"
+                value={user?.email}
+                disabled
                 class="input input-bordered w-full"
               />
-              {errors?.phone && <p className="error">{errors.phone.message}</p>}
-            </div>
-            <div>
-              <label>Order Quantity</label>
-              <div className="flex gap-5 items-center justify-between  mb-3">
+              <div>
                 <input
-                  type="number"
-                  {...register("quantity", {
+                  type="text"
+                  {...register("address", {
                     required: {
                       value: true,
-                      message: "Quantity is required To order",
-                    },
-                    max: {
-                      value: availableQuantity,
-                      message: `Maximum Order ${+availableQuantity} Unit`,
-                    },
-                    min: {
-                      value: minimumOrder,
-                      message: `Minimum Order ${+minimumOrder} Unit`,
+                      message: "Address is required",
                     },
                   })}
-                  defaultValue={minimumOrder}
-                  placeholder="Input Quantity"
-                  class="input input-bordered input-primary w-full"
+                  placeholder="Enter your address"
+                  class="input input-bordered w-full"
                 />
-                <p className="bg-secondary py-3 w-full text-center rounded-lg text-lg">
-                  Total Price :{" "}
-                  <span className="font-bold text-primary">
-                    ${(orderingQuantity || orderedQuantity) * price}
-                  </span>
-                </p>
+                {errors?.address && (
+                  <p className="error">{errors.address.message}</p>
+                )}
               </div>
-              {errors?.quantity && (
-                <p className="error">{errors.quantity.message}</p>
-              )}
-            </div>
-            <button
-              disabled={
-                orderingQuantity < minimumOrder ||
-                orderingQuantity > availableQuantity
-                  ? true
-                  : false
-              }
-              className="btn btn-primary w-full"
-              type="submit"
-            >
-              Order Now
-            </button>
-          </form>
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <div className="w-2/3 z-0">
-            <img src="https://i.ibb.co/FJLgV3j/drill1-2.png" alt="" />
+              <div>
+                <input
+                  type="number"
+                  {...register("phone", {
+                    required: {
+                      value: true,
+                      message: "Phone is required",
+                    },
+                    minLength: {
+                      value: 9,
+                      message: `Please Provide Valid Phone Number`,
+                    },
+                  })}
+                  placeholder="Enter your mobile number"
+                  class="input input-bordered w-full"
+                />
+                {errors?.phone && (
+                  <p className="error">{errors.phone.message}</p>
+                )}
+              </div>
+              <div>
+                <label>Order Quantity</label>
+                <div className="flex gap-5 items-center justify-between  mb-3">
+                  <input
+                    type="number"
+                    {...register("quantity", {
+                      required: {
+                        value: true,
+                        message: "Quantity is required To order",
+                      },
+                      max: {
+                        value: availableQuantity,
+                        message: `Maximum Order ${+availableQuantity} Unit`,
+                      },
+                      min: {
+                        value: minimumOrder,
+                        message: `Minimum Order ${+minimumOrder} Unit`,
+                      },
+                    })}
+                    defaultValue={minimumOrder}
+                    placeholder="Input Quantity"
+                    class="input input-bordered input-primary w-full"
+                  />
+                  <p className="bg-secondary py-3 w-full text-center rounded-lg text-lg">
+                    Total Price :{" "}
+                    <span className="font-bold text-primary">
+                      ${(orderingQuantity || orderedQuantity) * price}
+                    </span>
+                  </p>
+                </div>
+                {errors?.quantity && (
+                  <p className="error">{errors.quantity.message}</p>
+                )}
+              </div>
+              <button
+                disabled={
+                  orderingQuantity < minimumOrder ||
+                  orderingQuantity > availableQuantity
+                    ? true
+                    : false
+                }
+                className="btn btn-primary w-full"
+                type="submit"
+              >
+                Order Now
+              </button>
+            </form>
           </div>
-          <div className="drill-card-body z-10">
-            <h2 class="font-bold py-2 text-4xl uppercase">
-              Electric Drilling Machine
-            </h2>
-            <p className="w-[60ch] my-5 ">{description}</p>
-            <p className="text-left">
-              Available :{" "}
-              <span className="font-bold text-lg">{availableQuantity}</span> Pcs
-            </p>
-            <p className="text-left">
-              Minimum Order :{" "}
-              <span className="font-bold text-lg">{minimumOrder}</span> Pcs
-            </p>
-            <p className="text-left text-2xl uppercase font-medium mb-3">
-              price: <span className="font-bold">${price}</span>{" "}
-              <span className="text-sm">per unit</span>
-            </p>
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-2/3 z-0">
+              <img src="https://i.ibb.co/FJLgV3j/drill1-2.png" alt="" />
+            </div>
+            <div className="drill-card-body z-10">
+              <h2 class="font-bold py-2 text-4xl uppercase">
+                Electric Drilling Machine
+              </h2>
+              <p className="w-[60ch] my-5 ">{description}</p>
+              <p className="text-left">
+                Available :{" "}
+                <span className="font-bold text-lg">{availableQuantity}</span>{" "}
+                Pcs
+              </p>
+              <p className="text-left">
+                Minimum Order :{" "}
+                <span className="font-bold text-lg">{minimumOrder}</span> Pcs
+              </p>
+              <p className="text-left text-2xl uppercase font-medium mb-3">
+                price: <span className="font-bold">${price}</span>{" "}
+                <span className="text-sm">per unit</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

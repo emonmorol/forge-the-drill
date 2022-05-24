@@ -4,11 +4,11 @@ import "react-toastify/dist/ReactToastify.css";
 import RequireAdmin from "./Authentication/RequireAdmin";
 import RequireAuth from "./Authentication/RequireAuth";
 import RequireUser from "./Authentication/RequireUser";
+import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Dashboard from "./Pages/DashboardPage/Dashboard/Dashboard";
 import Profile from "./Pages/DashboardPage/Profile/Profile";
 import NotFound from "./Pages/NotFound/NotFound";
-import PurchasePage from "./Pages/PurchasePage/PurchagePage";
 import { adminRoutes } from "./Routes/adminRoutes";
 import { privateRoute } from "./Routes/privateRoute";
 import { publicDashboard } from "./Routes/publicDashboard";
@@ -16,7 +16,7 @@ import { publicRoute } from "./Routes/publicRoute";
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar>
         <Routes>
           {publicRoute.map(({ path, Component }, index) => (
@@ -59,7 +59,7 @@ function App() {
           pauseOnHover
         />
       </Navbar>
-    </div>
+    </>
   );
 }
 
