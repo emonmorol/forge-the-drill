@@ -53,6 +53,7 @@ const PurchasePage = () => {
       totalPrice: +orderInfo.quantity * price,
       productName: name,
       productId: _id,
+      status: "Pending",
       productImage: image,
     };
 

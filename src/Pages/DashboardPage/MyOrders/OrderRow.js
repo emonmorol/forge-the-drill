@@ -11,6 +11,7 @@ const OrderRow = ({ order, index, refetch }) => {
     totalPrice,
     _id,
     transactionId,
+    status,
   } = order;
 
   const handleDelete = (id) => {
@@ -51,6 +52,8 @@ const OrderRow = ({ order, index, refetch }) => {
         {" "}
         {transactionId ? transactionId : "Unpaid"}
       </td>
+
+      <td className="text-center">{status}</td>
       <td className="flex gap-2 justify-center items-center h-full p-10">
         {transactionId ? (
           <button className="bg-green-200 px-5 py-1 w-full rounded-xl font-semibold text-green-500">

@@ -32,6 +32,7 @@ const MyOrders = () => {
               <th className="text-center">Quantity (PCS)</th>
               <th className="text-center">Price (USD)</th>
               <th className="text-center">Transaction ID</th>
+              <th className="text-center">Status</th>
               <th className="text-center">Action</th>
             </tr>
           </thead>
