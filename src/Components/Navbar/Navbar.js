@@ -1,11 +1,10 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 import useRole from "../../Hooks/useRole";
 import CustomLink from "../CustomLink/CustomLink";
-import MobileLink from "../CustomLink/MobileLink";
 import Loading from "../Loading/Loading";
 import "./Navbar.css";
 
@@ -98,46 +97,97 @@ const Navbar = ({ children }) => {
       </div>
       <div class="drawer-side">
         <label for="my-drawer-3" class="drawer-overlay"></label>
-        <ul class="p-4 overflow-y-auto w-80 bg-accent text-white">
-          <li className="w-full mb-7">
-            <MobileLink to="/home">Home</MobileLink>
+        <ul class="menu p-4 overflow-y-auto w-80 bg-accent text-white">
+          <li>
+            <Link to="/home">Home</Link>
           </li>
-          <li className="w-full mb-7">
-            <MobileLink to="/blogs">Blogs</MobileLink>
+          <li>
+            <Link to="/blogs">Blogs</Link>
           </li>
           {user ? (
             <>
-              {role === "admin" && (
-                <li className="w-full mb-7">
-                  <MobileLink to="/dashboard/manage-all-orders">
-                    Dashboard
-                  </MobileLink>
-                </li>
-              )}
-              {role !== "admin" && (
-                <li className="w-full mb-7">
-                  <MobileLink to="/dashboard/my-orders">Dashboard</MobileLink>
-                </li>
-              )}
+              <div class="collapse collapse-arrow">
+                <input type="checkbox" class="peer" />
+                <div class="collapse-title bg-primary rounded-tr-xl rounded-tl-xl peer-checked:border-t-2  text-primary-content peer-checked:border-x-2 border-white">
+                  Dashboard
+                </div>
+                <div class="collapse-content bg-primary  rounded-br-xl rounded-bl-xl text-primary-content peer-checked:border-x-2 peer-checked:border-b-2 border-white">
+                  <ul>
+                    {role === "admin" || (
+                      <>
+                        <li>
+                          <NavLink
+                            className="uppercase"
+                            to="/dashboard/my-orders"
+                          >
+                            My Orders
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="uppercase"
+                            to="/dashboard/add-review"
+                          >
+                            Add A Review
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
+                    {role === "admin" && (
+                      <>
+                        <li>
+                          <NavLink
+                            className="uppercase"
+                            to="/dashboard/manage-all-orders"
+                          >
+                            Manage All Orders
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="uppercase"
+                            to="/dashboard/make-admin"
+                          >
+                            Make Admin
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="uppercase"
+                            to="/dashboard/add-product"
+                          >
+                            Add A Product
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
+                    <li>
+                      <NavLink className="uppercase" to="/dashboard/profile">
+                        My Profile
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-              <li className="w-full mb-7">
-                <MobileLink to="/dashboard/profile">
+              <li>
+                <Link to="/dashboard/profile">
                   {userName ? userName : "User"}
-                </MobileLink>
+                </Link>
               </li>
-              <li className="w-full mb-7">
-                <MobileLink onClick={() => signOut(auth)} to="/login">
+              <li>
+                <Link onClick={() => signOut(auth)} to="/login">
                   Logout
-                </MobileLink>
+                </Link>
               </li>
             </>
           ) : (
             <>
-              <li className="w-full mb-7">
-                <MobileLink to="/login">Login</MobileLink>
+              <li>
+                <Link to="/login">Login</Link>
               </li>
-              <li className="w-full mb-7">
-                <MobileLink to="/register">Register</MobileLink>
+              <li>
+                <Link to="/register">Register</Link>
               </li>
             </>
           )}
