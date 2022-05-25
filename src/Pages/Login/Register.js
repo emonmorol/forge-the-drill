@@ -60,9 +60,9 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-login bg-no-repeat bg-cover  p-5  h-[100vh]">
-      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 lg:mt-40 rounded-2xl shadow-2xl">
-        <h2 className="pt-10 text-gray-100 uppercase text-3xl font-normal">
+    <div className="bg-no-repeat bg-cover text-primary p-5 h-[100vh]">
+      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 lg:mt-40 rounded-2xl  border-4 shadow-2xl ">
+        <h2 className="pt-10 text-primary uppercase text-3xl font-bold">
           register
         </h2>
         <form
@@ -149,7 +149,7 @@ const Register = () => {
             register
           </button>
         </form>
-        <Link className="text-center -mt-5 text-gray-100" to="/login">
+        <Link className="text-center -mt-5 text-primary text-sm" to="/login">
           Already have an account ?
         </Link>
         <Division />

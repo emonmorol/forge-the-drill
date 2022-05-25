@@ -37,7 +37,7 @@ const Social = () => {
       {error && <p className="error my-5">{error.message}</p>}
       <button
         onClick={() => signInWithGoogle()}
-        className="btn btn-outline my-5 w-full border-primary hover:border-0 bg-transparent hover:bg-primary text-white uppercase"
+        className="btn btn-outline my-5 w-full border-primary hover:border-0 bg-transparent hover:bg-primary text-primary uppercase"
       >
         <i class="fa-brands fa-google mr-2"></i> Continue With Google
       </button>

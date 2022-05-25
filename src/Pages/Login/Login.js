@@ -72,9 +72,9 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-login bg-no-repeat bg-cover p-5 h-[100vh]">
+    <div className="bg-no-repeat bg-cover p-5 h-[100vh]">
       <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center  mt-20 lg:mt-40 rounded-2xl shadow-2xl">
-        <h2 className="pt-10 text-gray-100 uppercase text-3xl font-bold">
+        <h2 className="pt-10 text-primary uppercase text-3xl font-bold">
           Login
         </h2>
         <form
@@ -139,12 +139,12 @@ const Login = () => {
         <div className="flex justify-between items-center w-full px-10">
           <span
             onClick={handleResetPassword}
-            className="cursor-pointer -mt-5 text-gray-100"
+            className="cursor-pointer -mt-5 text-primary text-sm"
             to="/register"
           >
             Forgot password ?
           </span>
-          <Link className="-mt-5 text-gray-100" to="/register">
+          <Link className="-mt-5  text-primary text-sm" to="/register">
             Don't have an account ?
           </Link>
         </div>
