@@ -81,28 +81,6 @@ const OrderRow = ({ order, index, refetch }) => {
           Cancel
         </button>
       </td>
-      {/* <td className="flex gap-2 justify-center items-center h-full p-10">
-        {transactionId ? (
-          <button className="bg-green-200 px-5 py-1 w-full rounded-xl font-semibold text-green-500">
-            Paid
-          </button>
-        ) : (
-          <>
-            <Link
-              to={`/dashboard/payment/${_id}`}
-              className="w-1/2 bg-blue-200 px-5 py-1 rounded-xl font-semibold text-blue-500 text-center"
-            >
-              Payment
-            </Link>
-            <button
-              onClick={() => handleCancelOrder(_id)}
-              className="w-1/2 bg-red-200 px-5 py-1 rounded-xl font-semibold text-red-500 text-center"
-            >
-              Cancel
-            </button>
-          </>
-        )}
-      </td> */}
     </tr>
   );
 };

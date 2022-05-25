@@ -4,7 +4,7 @@ import swal from "sweetalert";
 const DrillFeature = () => {
   return (
     <div className="bg-neutral py-20">
-      <div className="flex justify-center items-center max-w-7xl mx-auto gap-20">
+      <div className="flex flex-col lg:flex-row justify-center items-center max-w-7xl px-8 lg:mx-auto gap-20">
         <div className="flex-1">
           <h2 className="text-3xl font-bold uppercase my-6">
             Our Product Feature
@@ -27,14 +27,14 @@ const DrillFeature = () => {
                 }
               );
             }}
-            className="w-32 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#29cae4] px-4 py-5 text-white border-b-4 border-[#20b8d1] h-44 rounded-2xl shadow-2xl shadow-gray-300"
+            className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#29cae4] px-4 py-5 text-white border-b-4 border-[#20b8d1] rounded-2xl shadow-2xl shadow-gray-300"
           >
             <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#20b8d1] text-white">
               <i class="fa-solid fa-thumbtack"></i>
             </span>
-            <div className="mt-7">
+            <div className="mt-4 lg:mt-7">
               <p className="text-sm">Chuck</p>
-              <p className="text-[10px] mt-2">Tab the box to see details</p>
+              <p className="text-[10px]">Tab the box to see details</p>
             </div>
           </div>
           <div className="flex flex-col gap-10">
@@ -47,14 +47,14 @@ const DrillFeature = () => {
                   }
                 );
               }}
-              className="w-32 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#3d30ba] px-4 py-5 text-white border-b-4 border-[#3428a7] h-44 rounded-2xl shadow-2xl shadow-gray-300"
+              className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#3d30ba] px-4 py-5 text-white border-b-4 border-[#3428a7] rounded-2xl shadow-2xl shadow-gray-300"
             >
               <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#3428a7] text-white">
                 <i class="fa-brands fa-servicestack"></i>
               </span>
-              <div className="mt-7">
+              <div className="mt-4 lg:mt-7">
                 <p className="text-sm">Corded Drills</p>
-                <p className="text-[10px] mt-2">Tab the box to see details</p>
+                <p className="text-[10px]">Tab the box to see details</p>
               </div>
             </div>
             <div
@@ -66,14 +66,14 @@ const DrillFeature = () => {
                   }
                 );
               }}
-              className="w-32 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#c9d4e3] px-4 py-5 text-white border-b-4 border-[#b8c4d6] h-44 rounded-2xl shadow-2xl shadow-gray-300"
+              className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#c9d4e3] px-4 py-5 text-white border-b-4 border-[#b8c4d6] rounded-2xl shadow-2xl shadow-gray-300"
             >
               <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#b8c4d6] text-white">
                 <i class="fa-solid fa-rotate"></i>
               </span>
-              <div className="mt-7">
+              <div className="mt-4 lg:mt-7">
                 <p className="text-sm">Reverse</p>
-                <p className="text-[10px] mt-2">Tab the box to see details</p>
+                <p className="text-[10px]">Tab the box to see details</p>
               </div>
             </div>
           </div>
@@ -86,14 +86,14 @@ const DrillFeature = () => {
                 }
               );
             }}
-            className="w-32 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#4c5071] px-4 py-5 text-white border-b-4 border-[#3b3f61] h-44 rounded-2xl shadow-2xl shadow-gray-300"
+            className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#4c5071] px-4 py-5 text-white border-b-4 border-[#3b3f61] rounded-2xl shadow-2xl shadow-gray-300"
           >
             <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#3b3f61] text-white">
               <i class="fa-solid fa-dragon"></i>
             </span>
-            <div className="mt-7">
+            <div className="mt-4 lg:mt-7">
               <p className="text-sm">Variable speed</p>
-              <p className="text-[10px] mt-2">Tab the box to see details</p>
+              <p className="text-[10px]">Tab the box to see details</p>
             </div>
           </div>
         </div>

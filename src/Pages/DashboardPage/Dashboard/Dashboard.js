@@ -47,6 +47,11 @@ const Dashboard = () => {
                   Add A Product
                 </NavLink>
               </li>
+              <li>
+                <NavLink className="uppercase" to="/dashboard/manage-product">
+                  Manage Product
+                </NavLink>
+              </li>
             </>
           )}
           <li>

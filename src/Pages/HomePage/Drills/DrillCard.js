@@ -16,7 +16,7 @@ const DrillCard = ({ drill }) => {
 
   return (
     <section class="drill-card card card-compact w-96 bg-teal-50 border-[0.5px] hover:shadow-2xl transition-all duration-300">
-      <figure>
+      <figure className=" hover:rotate-6  transition-all duration-300">
         <img src={image} alt="Shoes" />
       </figure>
       <div class="card-body drill-card-body pt-20">

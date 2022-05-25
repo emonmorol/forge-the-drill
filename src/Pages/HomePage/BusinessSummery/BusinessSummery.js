@@ -7,8 +7,8 @@ import MainButton from "../../../Components/MainButton/MainButton";
 const BusinessSummery = () => {
   return (
     <section className="summery-banner-content">
-      <div className="summery-banner">
-        <h2 className="uppercase text-5xl text-primary font-extrabold text-center font-poppins">
+      <div className="summery-banner py-15 px-5">
+        <h2 className="uppercase mt-10 text-3xl lg:text-5xl text-primary font-extrabold text-center font-poppins">
           We Delivered Drills All Over The World
         </h2>
         <div>
@@ -109,11 +109,11 @@ const BusinessSummery = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center gap-5">
-          <h2 className="uppercase text-3xl text-gray-500 font-extrabold text-center font-poppins">
+        <div className="flex justify-center items-center gap-5  mb-10">
+          <h2 className="uppercase text-xl lg:text-3xl text-gray-500 font-extrabold text-center font-poppins">
             if you have any queries
           </h2>
-          <MainButton>Contact With us</MainButton>
+          <button className="button"> Contact Us</button>
         </div>
       </div>
     </section>
