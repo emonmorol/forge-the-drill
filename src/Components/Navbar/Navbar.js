@@ -113,6 +113,9 @@ const Navbar = ({ children }) => {
           <li>
             <Link to="/blogs">Blogs</Link>
           </li>
+          <li>
+            <Link to="/portfolio">Portfolio</Link>
+          </li>
           {user ? (
             <>
               <div class="collapse collapse-arrow">
@@ -166,6 +169,14 @@ const Navbar = ({ children }) => {
                             to="/dashboard/add-product"
                           >
                             Add A Product
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            className="uppercase"
+                            to="/dashboard/manage-product"
+                          >
+                            Manage Product
                           </NavLink>
                         </li>
                       </>

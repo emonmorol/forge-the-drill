@@ -28,7 +28,7 @@ const AddAProduct = () => {
       </h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        class="w-1/2 flex flex-col flex-start"
+        class="w-4/5 lg:w-1/2 flex flex-col flex-start"
       >
         <div class="w-full px-3">
           <label

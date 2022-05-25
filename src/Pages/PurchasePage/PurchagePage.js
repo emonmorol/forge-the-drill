@@ -81,9 +81,8 @@ const PurchasePage = () => {
   return (
     <div className="flex flex-col">
       <div className="overflow-hidden">
-        <h2>Details</h2>
-        <div className="flex justify-center pt-10">
-          <div className="w-1/3">
+        <div className="flex flex-col lg:flex-row-reverse justify-center pt-10">
+          <div className="lg:w-1/3 px-10">
             <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
               Order Information
             </h2>
@@ -164,7 +163,7 @@ const PurchasePage = () => {
                   />
                   <p className="bg-secondary py-3 w-full text-center rounded-lg text-lg">
                     Total Price :{" "}
-                    <span className="font-bold text-primary">
+                    <span className="font-bold text-primary px-3">
                       ${(orderingQuantity || orderedQuantity) * price}
                     </span>
                   </p>
@@ -187,12 +186,14 @@ const PurchasePage = () => {
               </button>
             </form>
           </div>
-          <div className="flex flex-col items-center justify-center -mt-10">
+          <div className="flex w-full flex-col items-center justify-center lg:-mt-10">
             <div className="w-2/3 z-0">
               <img src={image} alt="" />
             </div>
-            <div className="drill-card-body z-10">
-              <h2 class="font-bold py-2 text-4xl uppercase">{name}</h2>
+            <div className="z-10">
+              <h2 class="font-bold py-2 text-xl lg:text-4xl uppercase">
+                {name}
+              </h2>
               <p className="text-left">
                 Available :{" "}
                 <span className="font-bold text-lg">{availableQuantity}</span>{" "}
@@ -206,7 +207,7 @@ const PurchasePage = () => {
                 price: <span className="font-bold">${price}</span>{" "}
                 <span className="text-sm">per unit</span>
               </p>
-              <p className="w-[60ch] my-5 ">{description}</p>
+              <p className="w-[40ch] my-5 ">{description}</p>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
   }
 
   return (
-    <div className="w-full px-10">
+    <div className=" w-11/12 lg:w-full lg:px-10 my-10">
       <h2>This is manage all orders</h2>
       <div class="overflow-x-auto">
         <table class="table w-full">

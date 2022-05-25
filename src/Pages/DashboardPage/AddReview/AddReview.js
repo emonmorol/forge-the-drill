@@ -31,7 +31,7 @@ const AddReview = () => {
     })();
   };
   return (
-    <div className="review">
+    <div className="review p-10 w-4/5 lg:w-1/2">
       <h2 className="text-xl mb-5 text-center font-bold uppercase text-primary">
         Say Something about us
       </h2>

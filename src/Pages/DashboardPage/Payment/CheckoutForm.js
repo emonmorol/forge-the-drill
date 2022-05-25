@@ -107,15 +107,15 @@ const CheckoutForm = ({ totalAmount, orderInfo }) => {
       )}
       <div className="flex justify-between mt-6 items-center">
         <span className="flex-1 flex items-center">
-          <span className=" text-md font-semibold uppercase ">
+          <span className="text-sm lg:text-md font-semibold uppercase ">
             Total Amount :
           </span>
-          <span className="text-2xl font-bold text-primary">
+          <span className="text-lg lg:text-2xl font-bold text-primary">
             ${totalAmount}
           </span>
         </span>
         <button
-          className={`btn flex-1 w-full bg-primary text-white uppercase py-1.5 rounded-2xl ${
+          className={`btn btn-md w-1/2 bg-primary text-white uppercase py-1.5 rounded-2xl ${
             isPaying && "loading"
           }`}
           type="submit"

@@ -24,8 +24,8 @@ const Portfolio = () => {
   return (
     <>
       <div className="bg-neutral min-h-screen">
-        <div className="flex flex-col items-center max-w-7xl mx-auto ">
-          <div className="flex items-center justify-center py-10 rounded-3xl shadow-sm hover:shadow-xl gap-10 my-14 border w-full hover:scale-105 transition-all duration-200">
+        <div className="flex flex-col items-center max-w-7xl mx-auto p-5">
+          <div className="flex flex-col lg:flex-row p-4 items-center justify-center py-10 rounded-3xl shadow-sm hover:shadow-xl gap-10 my-14 border w-full lg:hover:scale-105 transition-all duration-200">
             <div>
               <img
                 className="w-60 h-860 rounded-full border-8 border-gray-400 shadow-lg overflow-hidden"
@@ -33,10 +33,10 @@ const Portfolio = () => {
                 alt=""
               />
             </div>
-            <div>
+            <div className="flex flex-col items-center lg:items-start">
               <h2 className="text-4xl font-bold ">Emon Morol</h2>
               <p className=" text-sm">ekramulhasane69@gmail.com</p>
-              <div className=" my-4">
+              <div className="text-center w-full my-4">
                 <p>Computer Science And Engineering</p>
                 <p className="font-medium">
                   Hajee Mohammad Danesh Science And Technology University
@@ -44,8 +44,8 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center gap-5 w-full">
-            <div className="border p-10 rounded-3xl shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-200">
+          <div className="flex flex-col lg:flex-row justify-center gap-5 w-full">
+            <div className="border p-10 rounded-3xl shadow-sm hover:shadow-xl lg:hover:scale-105 transition-all duration-200">
               <h2 className="text-2xl uppercase font-semibold text-center mb-10">
                 My Projects
               </h2>
@@ -164,7 +164,7 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-            <div className="border p-10 rounded-3xl shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-200">
+            <div className="border p-10 rounded-3xl shadow-sm hover:shadow-xl lg:hover:scale-105 transition-all duration-200">
               <h2 className="text-2xl uppercase font-semibold text-center mb-10">
                 skills that i have
               </h2>
@@ -177,7 +177,6 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

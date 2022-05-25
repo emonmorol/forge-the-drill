@@ -71,7 +71,7 @@ const Register = () => {
         >
           <div class="form-control w-full">
             <label class="input-group w-full">
-              <span className="bg-primary font-bold uppercase text-center text-white w-1/4">
+              <span className="bg-primary text-xs lg:text-md font-normal uppercase text-center text-white w-1/4">
                 Name
               </span>
               <input
@@ -94,7 +94,7 @@ const Register = () => {
           </div>
           <div class="form-control w-full">
             <label class="input-group w-full">
-              <span className="bg-primary font-normal uppercase text-center text-white w-1/4">
+              <span className="bg-primary text-xs lg:text-md font-normal uppercase text-center text-white w-1/4">
                 Email
               </span>
               <input
@@ -117,7 +117,7 @@ const Register = () => {
           </div>
           <div class="form-control w-full">
             <label class="input-group w-full">
-              <span className="bg-primary font-normal uppercase text-center text-white w-1/4">
+              <span className="bg-primary text-xs lg:text-md font-normal uppercase text-center text-white w-1/4">
                 Password
               </span>
               <input
