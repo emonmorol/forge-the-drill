@@ -26,7 +26,6 @@ const PurchasePage = () => {
   );
 
   const orderingQuantity = watch("quantity");
-  console.log(orderingQuantity);
 
   if (isLoading) {
     return <Loading />;
@@ -40,9 +39,6 @@ const PurchasePage = () => {
     availableQuantity,
     _id,
   } = drill?.data;
-  console.log(
-    orderingQuantity >= minimumOrder || orderingQuantity <= availableQuantity
-  );
 
   const onSubmit = (orderInfo) => {
     setOrderedQuantity(orderInfo.quantity);

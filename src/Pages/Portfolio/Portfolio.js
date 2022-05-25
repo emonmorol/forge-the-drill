@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../Components/Footer/Footer";
 import SkillCard from "./SkillCard";
 import profile from "../../Assets/Images/profile.png";
 

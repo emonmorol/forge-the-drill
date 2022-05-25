@@ -10,7 +10,6 @@ const ManageAllOrders = () => {
     isLoading,
     refetch,
   } = useQuery("all-orders", () => primaryAxios.get(`/all-order`));
-  console.log(orders);
 
   if (isLoading) {
     return <Loading />;

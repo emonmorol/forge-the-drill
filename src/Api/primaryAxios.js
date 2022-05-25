@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 import auth from "../firebase.init";
 
 const primaryAxios = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://forge-the-drill.herokuapp.com",
 });
 
 // request interceptor

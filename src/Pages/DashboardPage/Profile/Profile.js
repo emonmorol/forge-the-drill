@@ -31,8 +31,6 @@ const Profile = () => {
   if (roleLoading || isLoading || updating) {
     return <Loading />;
   }
-  console.log(user);
-
   const onSubmit = async (updatedInfo) => {
     await updateProfile({
       displayName: updatedInfo?.name,
@@ -44,7 +42,6 @@ const Profile = () => {
         updatedInfo
       );
       if (data) {
-        console.log(data);
         toast.success("User Updated Successfully");
         refetch();
       }
