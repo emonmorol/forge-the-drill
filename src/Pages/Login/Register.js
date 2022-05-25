@@ -60,14 +60,14 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-login bg-no-repeat bg-cover h-[100vh]">
-      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-40 rounded-2xl shadow-2xl">
+    <div className="bg-login bg-no-repeat bg-cover  p-5  h-[100vh]">
+      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 lg:mt-40 rounded-2xl shadow-2xl">
         <h2 className="pt-10 text-gray-100 uppercase text-3xl font-normal">
           register
         </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full flex flex-col gap-5 p-10"
+          className="w-full flex flex-col gap-5 p-6 lg:p-10"
         >
           <div class="form-control w-full">
             <label class="input-group w-full">
