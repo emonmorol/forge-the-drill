@@ -3,13 +3,13 @@ import React from "react";
 const Process = () => {
   return (
     <div className="section-bg">
-      <div className="max-w-7xl flex items-center justify-center mx-auto min-h-[50vh]">
+      <div className="max-w-7xl flex items-center justify-center mx-auto min-h-[50vh] my-20">
         <div className="w-full">
           <h1 class="mb-4 text-center font-black text-gray-700 uppercase">
             Ordering Process
           </h1>
-          <div class="flex">
-            <div class="w-1/3 text-center px-6">
+          <div class="flex flex-col lg:flex-row">
+            <div class="w-2/3 mx-auto lg:w-1/3 text-center px-6">
               <div class="hover:scale-110 transition-all duration-300 bg-gray-300 rounded-lg flex items-center justify-center border border-gray-200">
                 <div class="w-1/3 bg-transparent text-2xl flex items-center justify-center icon-step">
                   <i class="fa-solid fa-user"></i>
@@ -20,10 +20,10 @@ const Process = () => {
                 </div>
               </div>
             </div>
-            <div class=" flex-1 flex items-center justify-center text-2xl">
+            <div class="rotate-90 lg:rotate-0 flex-1 flex items-center justify-center text-2xl">
               <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="w-1/3 text-center px-6">
+            <div class="w-2/3 mx-auto lg:w-1/3 text-center px-6">
               <div class="hover:scale-110 transition-all duration-300 bg-gray-300 rounded-lg flex items-center justify-center border border-gray-200">
                 <div class="w-1/3 bg-transparent h-20 text-2xl flex items-center justify-center icon-step">
                   <i class="fa-solid fa-cart-shopping"></i>
@@ -36,10 +36,10 @@ const Process = () => {
                 </div>
               </div>
             </div>
-            <div class=" flex-1 flex items-center justify-center text-2xl">
+            <div class="rotate-90 lg:rotate-0 flex-1 flex items-center justify-center text-2xl">
               <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="w-1/3 text-center px-6">
+            <div class="w-2/3 mx-auto lg:w-1/3 text-center px-6">
               <div class="hover:scale-110 transition-all duration-300 bg-gray-300 rounded-lg flex items-center justify-center border border-gray-200">
                 <div class="w-1/3 bg-transparent h-20 text-2xl flex items-center justify-center icon-step">
                   <i class="fa-solid fa-hand-holding-dollar"></i>
@@ -52,10 +52,10 @@ const Process = () => {
                 </div>
               </div>
             </div>
-            <div class=" flex-1 flex items-center justify-center text-2xl">
+            <div class="rotate-90 lg:rotate-0 flex-1 flex items-center justify-center text-2xl">
               <i class="fa-solid fa-chevron-right"></i>
             </div>
-            <div class="w-1/3 text-center px-6">
+            <div class="w-2/3 mx-auto lg:w-1/3 text-center px-6">
               <div class="hover:scale-110 transition-all duration-300 bg-gray-300 rounded-lg flex items-center justify-center border border-gray-200">
                 <div class="w-1/3 bg-transparent h-20 text-2xl flex items-center justify-center icon-step">
                   <i class="fa-solid fa-check"></i>

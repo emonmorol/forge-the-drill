@@ -24,7 +24,7 @@ const Drills = () => {
         {error ? (
           <p>{error.message}</p>
         ) : (
-          <div className="grid grid-cols-3 gap-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-8">
             {drills?.data.map((drill) => (
               <DrillCard key={drill._id} drill={drill} />
             ))}
