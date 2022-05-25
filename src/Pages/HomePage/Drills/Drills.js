@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import primaryAxios from "../../../Api/primaryAxios";
 import Loading from "../../../Components/Loading/Loading";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import DrillCard from "./DrillCard";
 
 const Drills = () => {
@@ -18,9 +19,7 @@ const Drills = () => {
   return (
     <div className="section-bg bg-white">
       <div className="z-30 max-w-7xl mx-auto py-20">
-        <div className="mx-auto w-full">
-          <h1 className="section-title">We MenuFacture</h1>
-        </div>
+        <SectionTitle>We Manufacture</SectionTitle>
         {error ? (
           <p>{error.message}</p>
         ) : (

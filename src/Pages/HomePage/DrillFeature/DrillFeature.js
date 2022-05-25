@@ -1,13 +1,15 @@
 import React from "react";
 import swal from "sweetalert";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const DrillFeature = () => {
   return (
     <div className="bg-neutral py-20">
+      <SectionTitle>Our Product Feature</SectionTitle>
       <div className="flex flex-col lg:flex-row justify-center items-center max-w-7xl px-8 lg:mx-auto gap-20">
         <div className="flex-1">
           <h2 className="text-3xl font-bold uppercase my-6">
-            Our Product Feature
+            We Make Using Drill Comfortable
           </h2>
           <p>
             From simple fixings to professional use at home, a drilling machine

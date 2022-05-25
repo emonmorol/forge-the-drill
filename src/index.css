@@ -55,8 +55,14 @@ body {
 .section-title::after {
   content: " ";
   display: block;
-  height: 10px;
+  height: 3px;
   width: 100%;
   position: absolute;
-  background-color: red;
+  background-color: #125d80;
+  transform: scaleX(0.2);
+  transform-origin: center;
+  transition: transform 0.3s ease-in;
+}
+.section-title:hover::after {
+  transform: scaleX(1);
 }

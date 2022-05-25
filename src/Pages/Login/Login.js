@@ -73,7 +73,7 @@ const Login = () => {
 
   return (
     <div className="bg-no-repeat bg-cover p-5 h-[100vh]">
-      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center  mt-20 lg:mt-40 rounded-2xl shadow-2xl">
+      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center  mt-20 lg:mt-40 rounded-2xl shadow-2xl transition-all duration-300">
         <h2 className="pt-10 text-primary uppercase text-3xl font-bold">
           Login
         </h2>
@@ -131,7 +131,7 @@ const Login = () => {
             )}
           </div>
           {error && <p className="error">{error.message}</p>}
-          <button className="btn btn-primary text-white rounded-full w-full">
+          <button className="btn btn-primary text-white rounded-lg w-full">
             Login
           </button>
         </form>

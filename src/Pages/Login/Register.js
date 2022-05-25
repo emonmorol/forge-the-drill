@@ -61,7 +61,7 @@ const Register = () => {
 
   return (
     <div className="bg-no-repeat bg-cover text-primary p-5 h-[100vh]">
-      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 lg:mt-40 rounded-2xl  border-4 shadow-2xl ">
+      <div className="glass max-w-xl mx-auto flex flex-col justify-center items-center mt-20 lg:mt-40 rounded-2xl  border-4 shadow-2xl transition-all duration-300">
         <h2 className="pt-10 text-primary uppercase text-3xl font-bold">
           register
         </h2>
@@ -144,7 +144,7 @@ const Register = () => {
           {error && <p className="error">{error.message}</p>}
           <button
             type="submit"
-            className="btn btn-primary text-white rounded-full w-full"
+            className="btn btn-primary text-white rounded-lg w-full"
           >
             register
           </button>
