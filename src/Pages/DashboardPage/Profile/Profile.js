@@ -85,7 +85,7 @@ const Profile = () => {
             </ul>
           </div>
         </div>
-        <div class="w-full md:w-9/12 mx-2 h-64  border-t-4 border-[#125f82]">
+        <div class="w-full md:w-9/12 mx-2 my-4 h-64  border-t-4 border-[#125f82]">
           <div class="bg-white  p-5 rounded-br-lg rounded-bl-lg shadow-sm rounded-sm">
             <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
               <span clas="text-green-500">
@@ -107,7 +107,7 @@ const Profile = () => {
               <span class="tracking-wide">About</span>
             </div>
             <div class="text-gray-700">
-              <div class="text-md">
+              <div class="text-xs lg:text-md">
                 <div class="grid grid-cols-2">
                   <div class="px-2 py-2 font-semibold">Name</div>
                   <div class="px-2 py-2">
@@ -216,7 +216,7 @@ const Profile = () => {
             </div>
             <div class="text-gray-700 w-full">
               <form onSubmit={handleSubmit(onSubmit)} class="w-full">
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap gap-5 -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       Your Name
@@ -255,7 +255,7 @@ const Profile = () => {
                     </select>
                   </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap gap-5 -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       Education
@@ -283,7 +283,7 @@ const Profile = () => {
                     />
                   </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap  gap-5 -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       Address
@@ -311,7 +311,7 @@ const Profile = () => {
                     />
                   </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap  gap-5 -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       Image
