@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
@@ -26,6 +26,9 @@ const PurchasePage = () => {
   );
 
   const orderingQuantity = watch("quantity");
+  useEffect(() => {
+    setOrderedQuantity(+orderingQuantity);
+  }, [orderingQuantity]);
 
   if (isLoading) {
     return <Loading />;
@@ -39,7 +42,15 @@ const PurchasePage = () => {
     availableQuantity,
     _id,
   } = drill?.data;
+  console.log(
+    +drill?.data?.minimumOrder,
+    orderedQuantity,
+    +drill?.data?.availableQuantity
+  );
 
+  console.log(
+    minimumOrder > orderedQuantity || availableQuantity < orderedQuantity
+  );
   const onSubmit = (orderInfo) => {
     setOrderedQuantity(orderInfo.quantity);
 
@@ -77,8 +88,8 @@ const PurchasePage = () => {
   return (
     <div className="flex flex-col">
       <div className="overflow-hidden">
-        <div className="flex flex-col lg:flex-row-reverse justify-center pt-10">
-          <div className="lg:w-1/3 px-10">
+        <div className="flex flex-col lg:flex-row justify-center items-center pt-10">
+          <div className="w-full lg:w-1/3 px-10">
             <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
               Order Information
             </h2>
@@ -90,13 +101,13 @@ const PurchasePage = () => {
                 type="text"
                 value={user?.displayName}
                 disabled
-                class="input input-bordered w-full"
+                className="input input-bordered w-full"
               />
               <input
                 type="email"
                 value={user?.email}
                 disabled
-                class="input input-bordered w-full"
+                className="input input-bordered w-full"
               />
               <div>
                 <input
@@ -108,7 +119,7 @@ const PurchasePage = () => {
                     },
                   })}
                   placeholder="Enter your address"
-                  class="input input-bordered w-full"
+                  className="input input-bordered w-full"
                 />
                 {errors?.address && (
                   <p className="error">{errors.address.message}</p>
@@ -128,7 +139,7 @@ const PurchasePage = () => {
                     },
                   })}
                   placeholder="Enter your mobile number"
-                  class="input input-bordered w-full"
+                  className="input input-bordered w-full"
                 />
                 {errors?.phone && (
                   <p className="error">{errors.phone.message}</p>
@@ -155,7 +166,7 @@ const PurchasePage = () => {
                     })}
                     defaultValue={minimumOrder}
                     placeholder="Input Quantity"
-                    class="input input-bordered input-primary w-full"
+                    className="input input-bordered input-primary w-full"
                   />
                   <p className="bg-secondary py-3 w-full text-center rounded-lg text-lg">
                     Total Price :{" "}
@@ -168,26 +179,25 @@ const PurchasePage = () => {
                   <p className="error">{errors.quantity.message}</p>
                 )}
               </div>
+
               <button
                 disabled={
-                  orderingQuantity < minimumOrder ||
-                  orderingQuantity > availableQuantity
-                    ? true
-                    : false
+                  minimumOrder > orderedQuantity ||
+                  availableQuantity < orderedQuantity
                 }
-                className="btn btn-primary w-full"
+                className="btn btn-primary w-full "
                 type="submit"
               >
                 Order Now
               </button>
             </form>
           </div>
-          <div className="flex w-full flex-col items-center justify-center lg:-mt-10">
-            <div className="w-2/3 z-0">
+          <div className="flex w-1/2 flex-col items-center justify-center lg:-mt-10 mb-20">
+            <div className="w-full lg:w-2/3 z-0 my-5">
               <img src={image} alt="" />
             </div>
             <div className="z-10">
-              <h2 class="font-bold py-2 text-xl lg:text-4xl uppercase">
+              <h2 className="font-bold py-2 text-xl lg:text-4xl uppercase">
                 {name}
               </h2>
               <p className="text-left">
@@ -203,7 +213,7 @@ const PurchasePage = () => {
                 price: <span className="font-bold">${price}</span>{" "}
                 <span className="text-sm">per unit</span>
               </p>
-              <p className="w-[40ch] my-5 ">{description}</p>
+              <p className="w-[30ch] lg:w-[60ch] my-5 ">{description}</p>
             </div>
           </div>
         </div>

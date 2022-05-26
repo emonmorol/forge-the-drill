@@ -17,7 +17,7 @@ const BusinessSummery = () => {
             <div className="grid grid-cols-1 py-10 gap-5 md:grid-cols-2 lg:grid-cols-4">
               <div className="lg:mx-10 rounded-2xl p-4 bg-white text-gray-500 hover:text-primary flex flex-col justify-center">
                 <div className="text-6xl py-5 mb-2 px-[1.45rem] cursor-text mx-auto transition-all duration-300">
-                  <i class="fa-solid fa-flag"></i>
+                  <i className="fa-solid fa-flag"></i>
                 </div>
                 <div className="text-center">
                   <CountUp start={0} end={49} duration={2}>
@@ -40,7 +40,7 @@ const BusinessSummery = () => {
               </div>
               <div className="lg:mx-10 rounded-2xl p-4 bg-white text-gray-500 hover:text-primary  flex flex-col justify-center">
                 <div className="text-6xl py-5 mb-2 px-[1.45rem] cursor-text mx-auto transition-all duration-300">
-                  <i class="fa-solid fa-truck"></i>
+                  <i className="fa-solid fa-truck"></i>
                 </div>
                 <div className="text-center">
                   <CountUp start={0} end={500} duration={2}>
@@ -63,7 +63,7 @@ const BusinessSummery = () => {
               </div>
               <div className="lg:mx-10 rounded-2xl p-4 bg-white text-gray-500 hover:text-primary  flex flex-col justify-center">
                 <div className="text-6xl py-5 mb-2 px-[1.45rem] cursor-text mx-auto transition-all duration-300">
-                  <i class="fa-solid fa-users"></i>
+                  <i className="fa-solid fa-users"></i>
                 </div>
                 <div className="text-center">
                   <CountUp start={0} end={70} duration={2}>
@@ -86,7 +86,7 @@ const BusinessSummery = () => {
               </div>
               <div className="lg:mx-10 rounded-2xl p-4 bg-white text-gray-500 hover:text-primary   flex flex-col justify-center">
                 <div className="text-6xl py-5 mb-2 px-[1.45rem] cursor-text mx-auto transition-all duration-300">
-                  <i class="fa-solid fa-thumbs-up"></i>
+                  <i className="fa-solid fa-thumbs-up"></i>
                 </div>
                 <div className="text-center">
                   <CountUp start={0} end={10} duration={2}>

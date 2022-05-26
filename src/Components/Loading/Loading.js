@@ -2,7 +2,7 @@ import React from "react";
 import "./Loading.css";
 
 const Loading = () => {
-  return <div class="drill-loading"></div>;
+  return <div className="drill-loading"></div>;
 };
 
 export default Loading;

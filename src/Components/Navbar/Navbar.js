@@ -17,39 +17,42 @@ const Navbar = ({ children }) => {
   }
 
   return (
-    <nav class="drawer drawer-end">
-      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col">
-        <div className=" bg-accent mx-auto z-50 sticky top-0 w-full  navbar">
-          <div class="nav-content w-full max-w-7xl mx-auto z-50">
-            <Link to="/home" class="flex-1 px-2 mx-2 text-white">
+    <nav className="drawer drawer-end">
+      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col">
+        <div className="bg-accent mx-auto z-50 sticky top-0 w-full  navbar">
+          <div className="nav-content w-full max-w-7xl mx-auto z-50">
+            <Link to="/home" className="flex-1 px-2 mx-2 text-white">
               Forge The Drill
             </Link>
-            <div class="flex-none lg:hidden">
-              <label for="my-drawer-3" class="btn btn-square btn-ghost">
+            <div className="flex-none lg:hidden">
+              <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  class="inline-block w-6 h-6 stroke-current"
+                  className="inline-block w-6 h-6 stroke-current"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M4 6h16M4 12h16M4 18h16"
                   ></path>
                 </svg>
               </label>
             </div>
 
-            <div class="flex-none hidden lg:block">
-              <ul class="menu-horizontal">
+            <div className="flex-none hidden lg:block">
+              <ul className="menu-horizontal">
                 <li>
                   <CustomLink to="/home">Home</CustomLink>
                 </li>
                 <li>
                   <CustomLink to="/blogs">Blogs</CustomLink>
+                </li>
+                <li>
+                  <CustomLink to="/all-drills">All Drills</CustomLink>
                 </li>
                 <li>
                   <CustomLink to="/portfolio">Portfolio</CustomLink>
@@ -104,26 +107,30 @@ const Navbar = ({ children }) => {
         </div>
         {children}
       </div>
-      <div class="drawer-side">
-        <label for="my-drawer-3" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-80 bg-accent text-white">
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-80 bg-accent text-white">
           <li>
             <Link to="/home">Home</Link>
           </li>
           <li>
+            <Link to="/all-drills">All Drills</Link>
+          </li>
+          <li>
             <Link to="/blogs">Blogs</Link>
           </li>
+
           <li>
             <Link to="/portfolio">Portfolio</Link>
           </li>
           {user ? (
             <>
-              <div class="collapse collapse-arrow">
-                <input type="checkbox" class="peer" />
-                <div class="collapse-title bg-primary rounded-tr-xl rounded-tl-xl peer-checked:border-t-2  text-primary-content peer-checked:border-x-2 border-white">
+              <div className="collapse collapse-arrow">
+                <input type="checkbox" className="peer" />
+                <div className="collapse-title bg-primary rounded-tr-xl rounded-tl-xl peer-checked:border-t-2  text-primary-content peer-checked:border-x-2 border-white">
                   Dashboard
                 </div>
-                <div class="collapse-content bg-primary  rounded-br-xl rounded-bl-xl text-primary-content peer-checked:border-x-2 peer-checked:border-b-2 border-white">
+                <div className="collapse-content bg-primary  rounded-br-xl rounded-bl-xl text-primary-content peer-checked:border-x-2 peer-checked:border-b-2 border-white">
                   <ul>
                     {role === "admin" || (
                       <>

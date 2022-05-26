@@ -1,7 +1,7 @@
 .review {
   border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 13px 13px 26px #e8e8e8, -13px -13px 26px #125e8140;
+  /* background: #ffffff; */
+  box-shadow: 5px 5px 10px #125e8140, -5px -5px 10px #125e8140;
   margin-top: 10%;
 }
 
@@ -10,5 +10,5 @@ textarea {
   border: 0px;
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: inset -6px -6px 12px #f5f5f5, inset 6px 6px 12px #125e8140;
+  box-shadow: inset -5px -5px 10px #f5f5f5, inset 5px 5px 10px #125e8114;
 }

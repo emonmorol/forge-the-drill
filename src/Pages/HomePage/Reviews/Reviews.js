@@ -20,15 +20,19 @@ const Reviews = () => {
       <div className="min-h-[60vh] mx-auto">
         <SectionTitle>Our Clients View</SectionTitle>
         <div className="grid grid-cols-1 lg:grid-cols-4 w-full gap-3 lg:gap-8">
-          {reviews.data.map((review) => (
-            <Review key={review._id} review={review} />
-          ))}
+          {[...reviews.data]
+            .reverse()
+            .slice(0, 8)
+            .map((review) => (
+              <Review key={review._id} review={review} />
+            ))}
         </div>
-        <div className="w-full flex justify-center mt-10">
-          <Link to="/dashboard/add-review" className="button w-72 text-center">
-            Say Something About Us
-          </Link>
-        </div>
+        <Link
+          className="w-1/4 mx-auto flex justify-center mt-10 button rounded-full overflow-hidden"
+          to="/dashboard/add-review"
+        >
+          Say Something About Us
+        </Link>
       </div>
     </section>
   );

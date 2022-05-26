@@ -4,7 +4,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <section className="banner-container bg-banner h-screen lg:h-[80vh] bg-fixed bg-no-repeat bg-cover text-white">
+    <section className="banner-container bg-banner h-screen lg:h-[90vh] bg-fixed bg-no-repeat bg-cover text-white">
       <div className="banner-content">
         <h2 className="text-left text-5xl uppercase font-bold text-white">
           <span>Drilling Tools</span>

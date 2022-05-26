@@ -1,7 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import primaryAxios from "../../../Api/primaryAxios";
 import Loading from "../../../Components/Loading/Loading";
+import MainButton from "../../../Components/MainButton/MainButton";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import DrillCard from "./DrillCard";
 
@@ -24,11 +26,20 @@ const Drills = () => {
           <p>{error.message}</p>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-8">
-            {drills?.data.map((drill) => (
-              <DrillCard key={drill._id} drill={drill} />
-            ))}
+            {[...drills?.data]
+              .reverse()
+              .slice(0, 3)
+              .map((drill) => (
+                <DrillCard key={drill._id} drill={drill} />
+              ))}
           </div>
         )}
+        <Link
+          className="w-1/3 mx-auto flex justify-center mt-10 button rounded-full overflow-hidden"
+          to="/all-drills"
+        >
+          See All Items
+        </Link>
       </div>
     </div>
   );

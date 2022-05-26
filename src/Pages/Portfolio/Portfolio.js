@@ -35,7 +35,7 @@ const Portfolio = () => {
             <div className="flex flex-col items-center lg:items-start">
               <h2 className="text-4xl font-bold ">Emon Morol</h2>
               <p className=" text-sm">ekramulhasane69@gmail.com</p>
-              <div className="text-center w-full my-4">
+              <div className="text-center lg:text-left w-full my-4">
                 <p>Computer Science And Engineering</p>
                 <p className="font-medium">
                   Hajee Mohammad Danesh Science And Technology University
@@ -56,7 +56,7 @@ const Portfolio = () => {
                   <div>
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Live Site Link </p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://bagsq12.web.app/"
@@ -68,7 +68,7 @@ const Portfolio = () => {
 
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Client site code link</p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://github.com/emonmorol/bagsq-client"
@@ -79,7 +79,7 @@ const Portfolio = () => {
                     </div>
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Server site code link </p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://github.com/emonmorol/bagsq-server"
@@ -97,7 +97,7 @@ const Portfolio = () => {
                   <div>
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Live Site Link </p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://blood-buddies-donation.web.app/"
@@ -109,7 +109,7 @@ const Portfolio = () => {
 
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Client site code link</p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://github.com/emonmorol/blood_boddies"
@@ -120,7 +120,7 @@ const Portfolio = () => {
                     </div>
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Server site code link </p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://github.com/emonmorol/blood-buddies-server"
@@ -138,7 +138,7 @@ const Portfolio = () => {
                   <div>
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Live Site Link </p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://rimons-ielts.web.app/"
@@ -150,7 +150,7 @@ const Portfolio = () => {
 
                     <div className="flex mb-2 items-center">
                       <p className="text-xs">Client site code link</p>
-                      <i class="mx-2 fa-solid fa-chevron-right"></i>
+                      <i className="mx-2 fa-solid fa-chevron-right"></i>
                       <a
                         className="text-primary font-bold"
                         href="https://github.com/emonmorol/rimons-ielts"
@@ -167,7 +167,7 @@ const Portfolio = () => {
               <h2 className="text-2xl uppercase font-semibold text-center mb-10">
                 skills that i have
               </h2>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-3 lg:grid-cols-4 gap-3">
                 {skills.map((skill, index) => (
                   <SkillCard key={index} skill={skill} />
                 ))}

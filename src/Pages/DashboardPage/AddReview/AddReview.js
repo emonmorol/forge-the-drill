@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import primaryAxios from "../../../Api/primaryAxios";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import auth from "../../../firebase.init";
 import "./AddReview.css";
 
@@ -44,7 +45,7 @@ const AddReview = () => {
           <select
             {...register("ratings")}
             placeholder="Rate 1 To 5"
-            class="cursor-pointer input input-bordered input-primary w-full"
+            className="cursor-pointer input input-bordered input-primary w-full"
           >
             <option index value="1">
               1
@@ -59,7 +60,7 @@ const AddReview = () => {
           <label className="font-medium">Review Content</label>
           <textarea
             typeof="text"
-            class="textarea textarea-primary w-full"
+            className="textarea textarea-primary w-full"
             {...register("reviewContent", {
               required: {
                 value: true,

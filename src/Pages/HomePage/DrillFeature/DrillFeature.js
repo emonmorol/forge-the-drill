@@ -32,7 +32,7 @@ const DrillFeature = () => {
             className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#29cae4] px-4 py-5 text-white border-b-4 border-[#20b8d1] rounded-2xl shadow-2xl shadow-gray-300"
           >
             <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#20b8d1] text-white">
-              <i class="fa-solid fa-thumbtack"></i>
+              <i className="fa-solid fa-thumbtack"></i>
             </span>
             <div className="mt-4 lg:mt-7">
               <p className="text-sm">Chuck</p>
@@ -52,7 +52,7 @@ const DrillFeature = () => {
               className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#3d30ba] px-4 py-5 text-white border-b-4 border-[#3428a7] rounded-2xl shadow-2xl shadow-gray-300"
             >
               <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#3428a7] text-white">
-                <i class="fa-brands fa-servicestack"></i>
+                <i className="fa-brands fa-servicestack"></i>
               </span>
               <div className="mt-4 lg:mt-7">
                 <p className="text-sm">Corded Drills</p>
@@ -71,7 +71,7 @@ const DrillFeature = () => {
               className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#c9d4e3] px-4 py-5 text-white border-b-4 border-[#b8c4d6] rounded-2xl shadow-2xl shadow-gray-300"
             >
               <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#b8c4d6] text-white">
-                <i class="fa-solid fa-rotate"></i>
+                <i className="fa-solid fa-rotate"></i>
               </span>
               <div className="mt-4 lg:mt-7">
                 <p className="text-sm">Reverse</p>
@@ -91,7 +91,7 @@ const DrillFeature = () => {
             className="w-26 h-36 lg:w-32  lg:h-44 cursor-pointer hover:scale-110 transition-all duration-300 bg-[#4c5071] px-4 py-5 text-white border-b-4 border-[#3b3f61] rounded-2xl shadow-2xl shadow-gray-300"
           >
             <span className="text-xl px-2 py-1 rounded-lg mt-5 bg-[#3b3f61] text-white">
-              <i class="fa-solid fa-dragon"></i>
+              <i className="fa-solid fa-dragon"></i>
             </span>
             <div className="mt-4 lg:mt-7">
               <p className="text-sm">Variable speed</p>

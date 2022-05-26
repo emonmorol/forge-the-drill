@@ -69,8 +69,8 @@ const Register = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="w-full flex flex-col gap-5 p-6 lg:p-10"
         >
-          <div class="form-control w-full">
-            <label class="input-group w-full">
+          <div className="form-control w-full">
+            <label className="input-group w-full">
               <span className="bg-primary text-xs lg:text-md font-normal uppercase text-center text-white w-1/4">
                 Name
               </span>
@@ -87,13 +87,13 @@ const Register = () => {
                   },
                 })}
                 placeholder="Enter your name"
-                class="input input-bordered w-3/4"
+                className="input input-bordered w-3/4"
               />
             </label>
             {errors?.name && <p className="error">{errors.name.message}</p>}
           </div>
-          <div class="form-control w-full">
-            <label class="input-group w-full">
+          <div className="form-control w-full">
+            <label className="input-group w-full">
               <span className="bg-primary text-xs lg:text-md font-normal uppercase text-center text-white w-1/4">
                 Email
               </span>
@@ -110,13 +110,13 @@ const Register = () => {
                   },
                 })}
                 placeholder="Enter your email"
-                class="input input-bordered w-3/4"
+                className="input input-bordered w-3/4"
               />
             </label>
             {errors?.email && <p className="error">{errors.email.message}</p>}
           </div>
-          <div class="form-control w-full">
-            <label class="input-group w-full">
+          <div className="form-control w-full">
+            <label className="input-group w-full">
               <span className="bg-primary text-xs lg:text-md font-normal uppercase text-center text-white w-1/4">
                 Password
               </span>
@@ -134,7 +134,7 @@ const Register = () => {
                   },
                 })}
                 placeholder="Enter your password"
-                class="input input-bordered w-3/4"
+                className="input input-bordered w-3/4"
               />
             </label>
             {errors?.password && (

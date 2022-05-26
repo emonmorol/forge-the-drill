@@ -10,7 +10,7 @@
 }
 .drill-card:hover figure img {
   transform: scale(1.1);
-  opacity: 0.5;
+  opacity: 0.9;
 }
 .drill-card-body h2 {
   position: relative;
@@ -29,7 +29,7 @@
   transform: scaleX(0);
   transform-origin: left;
   background-color: #125e81;
-  transition: transform 0.5s ease;
+  transition: transform 0.8s ease;
 }
 .drill-card-body:hover h2::before {
   transform: scaleX(1);

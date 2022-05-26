@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../../Components/Loading/Loading";
 import OrderRow from "./OrderRow";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
@@ -20,10 +21,13 @@ const MyOrders = () => {
     return <Loading />;
   }
   return (
-    <div className=" w-11/12 lg:w-full lg:px-10">
-      <h2> My Orders</h2>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+    <div className=" w-11/12 lg:w-full pt-5 lg:p-10 mb-40">
+      <SectionTitle>
+        hi <span className="text-green-500">{user?.displayName}</span>, Here is
+        your orders
+      </SectionTitle>
+      <div className="overflow-x-scroll">
+        <table className="table w-full">
           <thead className="bg-accent">
             <tr>
               <th className="">Serial No.</th>

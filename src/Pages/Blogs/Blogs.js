@@ -38,13 +38,16 @@ const Blogs = () => {
         <SectionTitle>Question & Answer</SectionTitle>
         <div className="w-full flex justify-center">
           <div className="w-2/5 max-auto p-0 rounded-lg">
-            {questions.map((question) => (
-              <div class="collapse collapse-arrow border rounded-lg">
-                <input type="checkbox" class="peer" />
-                <div class="collapse-title  peer-checked:border-2 border-primary rounded-lg">
+            {questions.map((question, index) => (
+              <div
+                key={index}
+                className="collapse collapse-arrow border rounded-lg"
+              >
+                <input type="checkbox" className="peer" />
+                <div className="collapse-title  peer-checked:border-2 border-primary rounded-lg">
                   {question.question}
                 </div>
-                <div class="collapse-content bg-neutral">
+                <div className="collapse-content bg-neutral">
                   <p className="p-6">{question?.answer}</p>
                 </div>
               </div>

@@ -15,12 +15,12 @@ const DrillCard = ({ drill }) => {
   } = drill;
 
   return (
-    <section class="drill-card card card-compact w-96 bg-teal-50 border-[0.5px] hover:shadow-2xl transition-all duration-300   mx-auto">
-      <figure className=" hover:rotate-6  transition-all duration-300">
+    <section className="drill-card card card-compact w-96 bg-teal-50 border-[0.5px] hover:shadow-2xl transition-all duration-300 mx-auto">
+      <figure className="overflow-hidden">
         <img src={image} alt="Shoes" />
       </figure>
-      <div class="card-body drill-card-body pt-20">
-        <h2 class="card-title py-2">{name}</h2>
+      <div className="card-body drill-card-body pt-20">
+        <h2 className="card-title py-2">{name}</h2>
         <p>{description.slice(0, 120)}...</p>
         <div className="flex justify-between">
           <p className="text-left">Available : {availableQuantity}</p>

@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import primaryAxios from "../../../Api/primaryAxios";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const AddAProduct = () => {
   const {
@@ -23,17 +24,15 @@ const AddAProduct = () => {
 
   return (
     <>
-      <h2 className="text-4xl font-bold my-6 uppercase text-primary">
-        Add A Product
-      </h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        class="w-4/5 lg:w-1/2 flex flex-col flex-start"
+        className="w-4/5 lg:w-1/2 flex flex-col flex-start my-10 shadow-lg p-5 rounded-2xl"
       >
-        <div class="w-full px-3">
+        <SectionTitle>add a product</SectionTitle>
+        <div className="w-full px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-password"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="grid-password"
           >
             Product Title
           </label>
@@ -50,7 +49,7 @@ const AddAProduct = () => {
                 message: "Minimum Four Characters",
               },
             })}
-            class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-password"
           />
           {errors?.name && (
@@ -58,10 +57,10 @@ const AddAProduct = () => {
           )}
         </div>
         <div className="grid grid-cols-2">
-          <div class="w-full px-3">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-password"
             >
               Total Stock
             </label>
@@ -78,7 +77,7 @@ const AddAProduct = () => {
                   message: "Negative Number Is not Allowed",
                 },
               })}
-              class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
             />
             {errors?.availableQuantity && (
@@ -87,10 +86,10 @@ const AddAProduct = () => {
               </p>
             )}
           </div>
-          <div class="w-full px-3">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-password"
             >
               Minimum Order Value
             </label>
@@ -107,7 +106,7 @@ const AddAProduct = () => {
                   message: "Negative Number Is not Allowed",
                 },
               })}
-              class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
             />
             {errors?.minimumOrder && (
@@ -118,10 +117,10 @@ const AddAProduct = () => {
           </div>
         </div>
         <div className="grid grid-cols-2">
-          <div class="w-full px-3">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-password"
             >
               Product Price (Usd)
             </label>
@@ -138,17 +137,17 @@ const AddAProduct = () => {
                   message: "Negative Number Is not Allowed",
                 },
               })}
-              class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
             />
             {errors?.price && (
               <p className="error text-xs mb-3">{errors.price.message}</p>
             )}
           </div>
-          <div class="w-full px-3">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-password"
             >
               Product Image URL
             </label>
@@ -161,7 +160,7 @@ const AddAProduct = () => {
                   message: "Image URL is required",
                 },
               })}
-              class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-password"
             />
             {errors?.image && (
@@ -169,10 +168,10 @@ const AddAProduct = () => {
             )}
           </div>
         </div>
-        <div class="w-full px-3">
+        <div className="w-full px-3">
           <label
-            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-password"
+            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            htmlFor="grid-password"
           >
             Product Description
           </label>
@@ -185,7 +184,7 @@ const AddAProduct = () => {
                 message: "Description is required",
               },
             })}
-            class="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-password"
           />
           {errors?.description && (

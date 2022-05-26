@@ -5,6 +5,7 @@ import CheckoutForm from "./CheckoutForm";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import primaryAxios from "../../../Api/primaryAxios";
+import Loading from "../../../Components/Loading/Loading";
 
 const Payment = () => {
   const stripePromise = loadStripe(
@@ -17,14 +18,14 @@ const Payment = () => {
   );
 
   if (isLoading) {
-    return <p>loading ...</p>;
+    return <Loading />;
   }
 
   return (
     <section className="mx-auto w-full lg:w-1/2 border-2 p-4 lg:p-10 rounded-2xl">
       <div className="flex flex-col w-full gap-5">
         <div className="flex flex-col">
-          <h2 class="text-4xl font-bold text-gray-600 uppercase text-center">
+          <h2 className="text-4xl font-bold text-gray-600 uppercase text-center">
             pay to proceed
           </h2>
           <hr className="border w-[10%] my-3 border-primary  mx-auto" />

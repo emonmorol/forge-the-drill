@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import primaryAxios from "../../../Api/primaryAxios";
 import Loading from "../../../Components/Loading/Loading";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import UserRow from "./UserRow";
 
 const MakeAdmin = () => {
@@ -16,17 +17,17 @@ const MakeAdmin = () => {
   }
 
   return (
-    <>
-      <h2>Make Admin</h2>
-      <div class="overflow-x-auto w-11/12 lg:w-2/3">
+    <div className="w-11/12 lg:w-full pt-5 lg:p-10 mb-40">
+      <SectionTitle>Make admin</SectionTitle>
+      <div class="overflow-x-scroll">
         <table class="table w-full">
           <thead>
             <tr>
               <th>Index</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Role</th>
-              <th>Action</th>
+              <th className="text-center">Role</th>
+              <th className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +42,7 @@ const MakeAdmin = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

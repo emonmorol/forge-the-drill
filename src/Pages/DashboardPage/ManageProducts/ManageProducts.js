@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import primaryAxios from "../../../Api/primaryAxios";
 import Loading from "../../../Components/Loading/Loading";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import ManageProductsRow from "./ManageProductsRow";
 
 const ManageProducts = () => {
@@ -16,9 +17,9 @@ const ManageProducts = () => {
   }
 
   return (
-    <div className=" w-11/12 lg:w-full lg:px-10">
-      <h2> My Orders</h2>
-      <div class="overflow-x-auto">
+    <div className="w-11/12 lg:w-full pt-5 lg:p-10 mb-40">
+      <SectionTitle>Product Management</SectionTitle>
+      <div class="overflow-x-scroll">
         <table class="table w-full">
           <thead className="bg-accent">
             <tr>
