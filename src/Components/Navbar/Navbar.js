@@ -15,6 +15,7 @@ const Navbar = ({ children }) => {
   if (loading || roleLoading) {
     return <Loading />;
   }
+  console.log(userName);
 
   return (
     <nav className="drawer drawer-end">
@@ -78,7 +79,10 @@ const Navbar = ({ children }) => {
                     )}
 
                     <li>
-                      <CustomLink to="/dashboard/profile">
+                      <CustomLink
+                        className={`${userName || "loading"}`}
+                        to="/dashboard/profile"
+                      >
                         {userName ? userName : "User"}
                       </CustomLink>
                     </li>

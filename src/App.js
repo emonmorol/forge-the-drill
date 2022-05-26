@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import RequireAdmin from "./Authentication/RequireAdmin";
 import RequireAuth from "./Authentication/RequireAuth";
 import RequireUser from "./Authentication/RequireUser";
-import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Dashboard from "./Pages/DashboardPage/Dashboard/Dashboard";
 import Profile from "./Pages/DashboardPage/Profile/Profile";
