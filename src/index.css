@@ -25,18 +25,19 @@ body {
 }
 .section-bg::before {
   content: " ";
-  background-color: #e3f6ff;
+  background-color: #e3f6ffc3;
   height: 100%;
   width: 100%;
   position: absolute;
   left: 0%;
   transform: translateX(-100%);
+  border-radius: 500px;
   transform-origin: left;
   transition: transform 0.5s ease;
   z-index: -1;
 }
 .section-bg:hover::before {
-  transform: translateX(-50%);
+  transform: translateX(-70%);
 }
 
 .section-title {

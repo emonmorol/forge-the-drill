@@ -22,7 +22,10 @@ const Navbar = ({ children }) => {
       <div className="drawer-content flex flex-col">
         <div className="bg-accent mx-auto z-50 sticky top-0 w-full  navbar">
           <div className="nav-content w-full max-w-7xl mx-auto z-50">
-            <Link to="/home" className="flex-1 px-2 mx-2 text-white">
+            <Link
+              to="/home"
+              className="flex-1 px-2 font-bold text-2xl uppercase mx-2 text-white"
+            >
               Forge The Drill
             </Link>
             <div className="flex-none lg:hidden">
