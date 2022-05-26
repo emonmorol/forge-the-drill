@@ -37,7 +37,7 @@ const Blogs = () => {
       <div className="w-full py-20 min-h-screen">
         <SectionTitle>Question & Answer</SectionTitle>
         <div className="w-full flex justify-center">
-          <div className="w-2/5 max-auto p-0 rounded-lg">
+          <div className="w-full lg:w-2/5 max-auto px-5 lg:p-0 rounded-lg">
             {questions.map((question, index) => (
               <div
                 key={index}

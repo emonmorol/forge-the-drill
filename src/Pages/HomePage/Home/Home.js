@@ -6,6 +6,7 @@ import Reviews from "../Reviews/Reviews";
 import Footer from "../../../Components/Footer/Footer";
 import DrillFeature from "../DrillFeature/DrillFeature";
 import Process from "../Process/Process";
+import Faq from "../Faq/Faq";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Drills />
       <Reviews />
       <Process />
+      <Faq />
       <Footer />
     </div>
   );

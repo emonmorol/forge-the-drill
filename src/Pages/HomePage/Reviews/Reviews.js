@@ -17,18 +17,18 @@ const Reviews = () => {
 
   return (
     <section className="bg-neutral p-5 lg:p-20">
-      <div className="min-h-[60vh] mx-auto">
+      <div className="min-h-[60vh] max-w-7xl mx-auto">
         <SectionTitle>Our Clients View</SectionTitle>
-        <div className="grid grid-cols-1 lg:grid-cols-4 w-full gap-3 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-3 lg:gap-8">
           {[...reviews.data]
             .reverse()
-            .slice(0, 8)
+            .slice(0, 6)
             .map((review) => (
               <Review key={review._id} review={review} />
             ))}
         </div>
         <Link
-          className="w-1/4 mx-auto flex justify-center mt-10 button rounded-full overflow-hidden"
+          className="w-2/4 lg:w-1/4 mx-auto flex text-xs lg:text-normal justify-center mt-10 button rounded-full overflow-hidden"
           to="/dashboard/add-review"
         >
           Say Something About Us
