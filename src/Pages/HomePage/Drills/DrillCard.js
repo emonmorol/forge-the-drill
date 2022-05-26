@@ -24,7 +24,7 @@ const DrillCard = ({ drill }) => {
         <p>{description.slice(0, 120)}...</p>
         <div className="flex justify-between">
           <p className="text-left">Available : {availableQuantity}</p>
-          <p className="text-right">Minimunu Order : {minimumOrder}</p>
+          <p className="text-right">Minimum Order : {minimumOrder}</p>
         </div>
         <div className="flex justify-between items-center">
           <p className="text-left text-2xl uppercase font-medium">

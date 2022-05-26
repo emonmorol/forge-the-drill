@@ -24,6 +24,7 @@ const MakeAdmin = () => {
           <thead>
             <tr>
               <th>Index</th>
+              <th>Profile</th>
               <th>Name</th>
               <th>Email</th>
               <th className="text-center">Role</th>

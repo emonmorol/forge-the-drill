@@ -80,7 +80,7 @@ const Navbar = ({ children }) => {
 
                     <li>
                       <CustomLink
-                        className={`${userName || "loading"}`}
+                        className={`ml-3 ${userName || "loading"}`}
                         to="/dashboard/profile"
                       >
                         {userName ? userName : "User"}

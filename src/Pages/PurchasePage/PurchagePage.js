@@ -155,14 +155,6 @@ const PurchasePage = () => {
                         value: true,
                         message: "Quantity is required To order",
                       },
-                      max: {
-                        value: availableQuantity,
-                        message: `Maximum Order ${+availableQuantity} Unit`,
-                      },
-                      min: {
-                        value: minimumOrder,
-                        message: `Minimum Order ${+minimumOrder} Unit`,
-                      },
                     })}
                     defaultValue={minimumOrder}
                     placeholder="Input Quantity"
@@ -175,8 +167,13 @@ const PurchasePage = () => {
                     </span>
                   </p>
                 </div>
-                {errors?.quantity && (
-                  <p className="error">{errors.quantity.message}</p>
+                {minimumOrder > orderedQuantity && (
+                  <p className="error">Minimum Order Unit is {minimumOrder}</p>
+                )}
+                {availableQuantity < orderedQuantity && (
+                  <p className="error">
+                    Maximum Order Unit is {availableQuantity}
+                  </p>
                 )}
               </div>
 

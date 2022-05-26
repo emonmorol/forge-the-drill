@@ -47,9 +47,7 @@ const AddReview = () => {
             placeholder="Rate 1 To 5"
             className="cursor-pointer input input-bordered input-primary w-full"
           >
-            <option index value="1">
-              1
-            </option>
+            <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -67,8 +65,8 @@ const AddReview = () => {
                 message: "Content is required",
               },
               maxLength: {
-                value: 160,
-                message: `Maximum 160 Characters`,
+                value: 180,
+                message: `Maximum 180 Characters`,
               },
             })}
             placeholder="Enter Your Thought Here"
