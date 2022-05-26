@@ -27,7 +27,7 @@ const ManageProductsRow = ({ drill, index, refetch }) => {
           }
         })();
       } else {
-        swal("Appreciate Your Not Cancelling The order", {
+        swal("Appreciate Your Not Deleting The order", {
           className: "rounded-3xl",
         });
       }
