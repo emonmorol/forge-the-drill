@@ -4,7 +4,7 @@ import primaryAxios from "../../../Api/primaryAxios";
 import Loading from "../../../Components/Loading/Loading";
 
 const Review = ({ review }) => {
-  const { name, image, ratings, reviewContent, email } = review;
+  const { name, ratings, reviewContent, email } = review;
   const { data: user, isLoading } = useQuery(["userProfile", email], () =>
     primaryAxios.get(`/user-role?email=${email}`)
   );

@@ -42,15 +42,7 @@ const PurchasePage = () => {
     availableQuantity,
     _id,
   } = drill?.data;
-  console.log(
-    +drill?.data?.minimumOrder,
-    orderedQuantity,
-    +drill?.data?.availableQuantity
-  );
 
-  console.log(
-    minimumOrder > orderedQuantity || availableQuantity < orderedQuantity
-  );
   const onSubmit = (orderInfo) => {
     setOrderedQuantity(orderInfo.quantity);
 

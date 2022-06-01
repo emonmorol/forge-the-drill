@@ -42,7 +42,6 @@ const Profile = () => {
         updatedInfo
       );
       if (data) {
-        console.log(data);
         toast.success("User Updated Successfully");
         refetch();
       }

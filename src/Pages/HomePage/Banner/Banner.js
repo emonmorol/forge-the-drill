@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <section className="banner-container bg-banner h-screen lg:h-[90vh] bg-fixed bg-no-repeat bg-cover text-white">
       <div className="banner-content">
-        <h2 className="text-left text-5xl uppercase font-bold text-white">
+        <h2 className="text-left text-3xl lg:text-5xl uppercase font-bold text-white">
           <span>Drilling Tools</span>
         </h2>
         <p className="w-[40ch] lg:w-[90ch] text-sm my-3">

@@ -5,7 +5,6 @@ import primaryAxios from "../../../Api/primaryAxios";
 const UserRow = ({ user, refetch, index }) => {
   const { name, email, role, _id, image } = user;
   const [isLoading, setIsLoading] = useState(null);
-  console.log(user);
 
   const handleMakeAdmin = (id) => {
     setIsLoading(true);

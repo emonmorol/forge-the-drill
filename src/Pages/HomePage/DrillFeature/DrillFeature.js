@@ -8,7 +8,7 @@ const DrillFeature = () => {
       <SectionTitle>Our Product Feature</SectionTitle>
       <div className="flex flex-col lg:flex-row justify-center items-center max-w-7xl px-8 lg:mx-auto gap-20">
         <div className="flex-1">
-          <h2 className="text-3xl font-bold uppercase my-6">
+          <h2 className="text-xl lg:text-3xl font-bold uppercase my-6">
             We Make Using Drill Comfortable
           </h2>
           <p>
@@ -36,7 +36,9 @@ const DrillFeature = () => {
             </span>
             <div className="mt-4 lg:mt-7">
               <p className="text-sm">Chuck</p>
-              <p className="text-[10px]">Tab the box to see details</p>
+              <p className="text-[7px] lg:text-[10px]">
+                Tab the box to see details
+              </p>
             </div>
           </div>
           <div className="flex flex-col gap-10">
@@ -56,7 +58,9 @@ const DrillFeature = () => {
               </span>
               <div className="mt-4 lg:mt-7">
                 <p className="text-sm">Corded Drills</p>
-                <p className="text-[10px]">Tab the box to see details</p>
+                <p className="text-[7px] lg:text-[10px]">
+                  Tab the box to see details
+                </p>
               </div>
             </div>
             <div
@@ -75,7 +79,9 @@ const DrillFeature = () => {
               </span>
               <div className="mt-4 lg:mt-7">
                 <p className="text-sm">Reverse</p>
-                <p className="text-[10px]">Tab the box to see details</p>
+                <p className="text-[7px] lg:text-[10px]">
+                  Tab the box to see details
+                </p>
               </div>
             </div>
           </div>
@@ -95,7 +101,9 @@ const DrillFeature = () => {
             </span>
             <div className="mt-4 lg:mt-7">
               <p className="text-sm">Variable speed</p>
-              <p className="text-[10px]">Tab the box to see details</p>
+              <p className="text-[7px] lg:text-[10px]">
+                Tab the box to see details
+              </p>
             </div>
           </div>
         </div>

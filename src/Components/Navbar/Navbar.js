@@ -15,7 +15,6 @@ const Navbar = ({ children }) => {
   if (loading || roleLoading) {
     return <Loading />;
   }
-  console.log(userName);
 
   return (
     <nav className="drawer drawer-end">

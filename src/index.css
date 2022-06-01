@@ -67,3 +67,9 @@ body {
 .section-title:hover::after {
   transform: scaleX(1);
 }
+
+@media screen and (max-width: 764px) {
+  .section-title {
+    font-size: 20px;
+  }
+}

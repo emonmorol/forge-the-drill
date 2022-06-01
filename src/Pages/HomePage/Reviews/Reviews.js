@@ -28,7 +28,7 @@ const Reviews = () => {
             ))}
         </div>
         <Link
-          className="w-2/4 lg:w-1/4 mx-auto flex text-xs lg:text-normal justify-center mt-10 button rounded-full overflow-hidden"
+          className="w-3/4 lg:w-1/4 mx-auto flex text-xs lg:text-normal justify-center mt-10 button rounded-full overflow-hidden"
           to="/dashboard/add-review"
         >
           Say Something About Us

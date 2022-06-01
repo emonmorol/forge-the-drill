@@ -3,7 +3,6 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import primaryAxios from "../../../Api/primaryAxios";
 import Loading from "../../../Components/Loading/Loading";
-import MainButton from "../../../Components/MainButton/MainButton";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import DrillCard from "./DrillCard";
 
@@ -35,7 +34,7 @@ const Drills = () => {
           </div>
         )}
         <Link
-          className="w-1/3 mx-auto flex justify-center mt-10 button rounded-full overflow-hidden"
+          className="w-3/4  lg:w-1/3 mx-auto flex justify-center mt-10 button rounded-full overflow-hidden"
           to="/all-drills"
         >
           See All Items

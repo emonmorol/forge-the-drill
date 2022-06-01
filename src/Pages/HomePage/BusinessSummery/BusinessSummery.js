@@ -114,7 +114,7 @@ const BusinessSummery = () => {
           <h2 className="uppercase text-lg lg:text-2xl text-primary font-extrabold text-center font-poppins">
             if you have any queries
           </h2>
-          <button className="button"> Contact Us</button>
+          <button className="button w-3/5"> Contact Us</button>
         </div>
       </div>
     </section>
